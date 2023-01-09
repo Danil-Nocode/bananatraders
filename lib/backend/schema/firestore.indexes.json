@@ -1,0 +1,36 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "Companies",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Area",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "DateForSorting",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Company_prices_days",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "Company",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Number_of_week",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Data",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}
