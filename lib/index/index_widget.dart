@@ -1,6 +1,6 @@
 import '../backend/backend.dart';
-import '../cambios/cambios_widget.dart';
 import '../components/exit_widget.dart';
+import '../components/func_not_ready_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -385,16 +385,19 @@ class _IndexWidgetState extends State<IndexWidget> {
                                   EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  await Navigator.push(
-                                    context,
-                                    PageTransition(
-                                      type: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 300),
-                                      reverseDuration:
-                                          Duration(milliseconds: 300),
-                                      child: CambiosWidget(),
-                                    ),
-                                  );
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: FuncNotReadyWidget(),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,

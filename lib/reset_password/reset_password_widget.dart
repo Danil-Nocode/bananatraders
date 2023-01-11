@@ -45,7 +45,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
         actions: [],
         flexibleSpace: FlexibleSpaceBar(
           title: Text(
-            'Reset Password',
+            'Cambio de la contraseña',
             style: FlutterFlowTheme.of(context).subtitle1.override(
                   fontFamily: 'Akzidenz Grotesk Pro',
                   color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -98,7 +98,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                               children: [
                                 Expanded(
                                   child: AutoSizeText(
-                                    'Trouble signing in?\nResetting your password is easy.\n\nJust press the button below and follow the instructions. ',
+                                    '¿Problemas para entrar? \nRestablecer su contraseña es fácil. \n\nSolo haga un clic en el botón de abajo y siga las instrucciones',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
@@ -134,7 +134,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                             fontSize: 14,
                                             fontWeight: FontWeight.normal,
                                           ),
-                                      hintText: 'Enter your email',
+                                      hintText: 'Introduce su e-mail ',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -209,7 +209,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                           context: context,
                                         );
                                       },
-                                      text: 'Reset Password',
+                                      text: 'Restablecer la contraseña',
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 50,

@@ -46,7 +46,7 @@ class _SupportWidgetState extends State<SupportWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: true,
         title: Text(
-          'Support',
+          'Soporte',
           style: FlutterFlowTheme.of(context).subtitle1.override(
                 fontFamily: 'Akzidenz Grotesk Pro',
                 color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -90,7 +90,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Write message for support',
+                            'Envía un mensaje al soporte técnico',
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
@@ -191,7 +191,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
                                       ),
-                                  hintText: 'Enter what do you want to ask',
+                                  hintText: 'Escriba su mensaje aquí',
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -264,7 +264,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                                           .join('&')));
                                 },
-                                text: 'Send',
+                                text: 'Enviar',
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 50,
