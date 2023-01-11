@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ChangeTarifWidget extends StatefulWidget {
-  const ChangeTarifWidget({Key? key}) : super(key: key);
+class NewFunctionWidget extends StatefulWidget {
+  const NewFunctionWidget({Key? key}) : super(key: key);
 
   @override
-  _ChangeTarifWidgetState createState() => _ChangeTarifWidgetState();
+  _NewFunctionWidgetState createState() => _NewFunctionWidgetState();
 }
 
-class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
+class _NewFunctionWidgetState extends State<NewFunctionWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -61,7 +61,7 @@ class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 4, 16, 0),
                               child: Text(
-                                'Cambiar tarifa',
+                                'Change tarif',
                                 style: FlutterFlowTheme.of(context)
                                     .title2
                                     .override(
@@ -83,14 +83,8 @@ class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
-                                'En caso de cancelar su plan actual a partir del (день) el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Akzidenz Grotesk Pro',
-                                      fontSize: 14,
-                                      useGoogleFonts: false,
-                                    ),
+                                '¿Está seguro? En caso de darse de baja su tarifa será “GRATUITO” a partir del (число) y el acceso a los datos será limitado',
+                                style: FlutterFlowTheme.of(context).bodyText2,
                               ),
                             ),
                           ),

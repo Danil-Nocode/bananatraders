@@ -1,12 +1,13 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../cambios/cambios_widget.dart';
+import '../components/exit_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../index_productor_copy/index_productor_copy_widget.dart';
-import '../login/login_widget.dart';
+import '../support/support_widget.dart';
 import '../tariffs/tariffs_widget.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -142,24 +143,25 @@ class _IndexWidgetState extends State<IndexWidget> {
                             ),
                             InkWell(
                               onTap: () async {
-                                await signOut();
-                                await Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginWidget(),
-                                  ),
-                                  (r) => false,
-                                );
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
+                                      child: ExitWidget(),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
                               },
-                              child: Text(
-                                'RU',
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Akzidenz Grotesk Pro',
-                                      color: Colors.white,
-                                      useGoogleFonts: false,
-                                    ),
+                              child: Icon(
+                                Icons.exit_to_app_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 24,
                               ),
                             ),
                           ],
@@ -243,21 +245,92 @@ class _IndexWidgetState extends State<IndexWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8, 12, 0, 0),
-                                          child: Container(
-                                            width: 32,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
+                                          child: StreamBuilder<
+                                              List<AreasDaysRecord>>(
+                                            stream: queryAreasDaysRecord(
+                                              queryBuilder: (areasDaysRecord) =>
+                                                  areasDaysRecord.orderBy(
+                                                      'Date',
+                                                      descending: true),
+                                              limit: 2,
                                             ),
-                                            child: Icon(
-                                              Icons.arrow_upward,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              size: 18,
-                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50,
+                                                    height: 50,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryColor,
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                              List<AreasDaysRecord>
+                                                  containerAreasDaysRecordList =
+                                                  snapshot.data!;
+                                              return Container(
+                                                width: 32,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    if (functions
+                                                            .functionOfComparison(
+                                                                containerAreasDaysRecordList
+                                                                    .toList())
+                                                            .toString() ==
+                                                        '0')
+                                                      Icon(
+                                                        Icons
+                                                            .arrow_upward_outlined,
+                                                        color:
+                                                            Color(0xFF4499E8),
+                                                        size: 18,
+                                                      ),
+                                                    if (functions
+                                                            .functionOfComparison(
+                                                                containerAreasDaysRecordList
+                                                                    .toList())
+                                                            .toString() ==
+                                                        '2')
+                                                      Icon(
+                                                        Icons.arrow_downward,
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        size: 18,
+                                                      ),
+                                                    if (functions
+                                                            .functionOfComparison(
+                                                                containerAreasDaysRecordList
+                                                                    .toList())
+                                                            .toString() ==
+                                                        '1')
+                                                      Icon(
+                                                        Icons.remove,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                        size: 18,
+                                                      ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
                                           ),
                                         ),
                                       ],
@@ -2710,7 +2783,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                               );
                                                             },
                                                             text:
-                                                                'Ver 21 productores del norte mas',
+                                                                'Ver precios de productores del norte',
                                                             options:
                                                                 FFButtonOptions(
                                                               width: 130,
@@ -2774,7 +2847,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaNorte > 0) {
+                                          if (FFAppState().semanaNorte > 1) {
                                             setState(() {
                                               FFAppState().semanaNorte =
                                                   FFAppState().semanaNorte + -1;
@@ -2871,7 +2944,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Compra - Centre',
+                                    'Compra - Centro',
                                     style: FlutterFlowTheme.of(context).title3,
                                   ),
                                 ],
@@ -2997,7 +3070,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                           );
                                                         },
                                                         text:
-                                                            'Ver 21 productores del norte mas',
+                                                            'Ver precios de productores del centro',
                                                         options:
                                                             FFButtonOptions(
                                                           width: 130,
@@ -3058,7 +3131,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaCentre > 0) {
+                                          if (FFAppState().semanaCentre > 1) {
                                             setState(() {
                                               FFAppState().semanaCentre =
                                                   FFAppState().semanaCentre +
@@ -3281,7 +3354,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                           );
                                                         },
                                                         text:
-                                                            'Ver 21 productores del norte mas',
+                                                            'Ver precios de productores del sur',
                                                         options:
                                                             FFButtonOptions(
                                                           width: 130,
@@ -3342,7 +3415,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaSur > 0) {
+                                          if (FFAppState().semanaSur > 1) {
                                             setState(() {
                                               FFAppState().semanaSur =
                                                   FFAppState().semanaSur + -1;
@@ -3414,20 +3487,30 @@ class _IndexWidgetState extends State<IndexWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '¿Encontraste un error? ',
+                    '¿Alguna duda?',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Akzidenz Grotesk Pro',
                           color: Colors.black,
                           useGoogleFonts: false,
                         ),
                   ),
-                  Text(
-                    'Informar',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Akzidenz Grotesk Pro',
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          useGoogleFonts: false,
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SupportWidget(),
                         ),
+                      );
+                    },
+                    child: Text(
+                      'Contáctanos',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Akzidenz Grotesk Pro',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            useGoogleFonts: false,
+                          ),
+                    ),
                   ),
                 ],
               ),

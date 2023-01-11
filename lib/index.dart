@@ -4,8 +4,6 @@ export 'tariffs/tariffs_widget.dart' show TariffsWidget;
 export 'cambios/cambios_widget.dart' show CambiosWidget;
 export 'index_productor/index_productor_widget.dart' show IndexProductorWidget;
 export 'index_trader/index_trader_widget.dart' show IndexTraderWidget;
-export 'sssss/sssss_widget.dart' show SssssWidget;
-export 'view/view_widget.dart' show ViewWidget;
 export 'login/login_widget.dart' show LoginWidget;
 export 'support/support_widget.dart' show SupportWidget;
 export 'empy_page/empy_page_widget.dart' show EmpyPageWidget;
@@ -18,3 +16,6 @@ export 'index_trader_copy2/index_trader_copy2_widget.dart'
     show IndexTraderCopy2Widget;
 export 'index_productor_copy2/index_productor_copy2_widget.dart'
     show IndexProductorCopy2Widget;
+export 'splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
+export 'index_productor_copy3/index_productor_copy3_widget.dart'
+    show IndexProductorCopy3Widget;
