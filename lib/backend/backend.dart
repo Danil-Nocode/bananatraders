@@ -28,6 +28,16 @@ export 'schema/company_prices_week_record.dart';
 export 'schema/official_spot_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
+Future<int> queryUsersRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UsersRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<UsersRecord>> queryUsersRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -70,6 +80,16 @@ Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
     );
 
 /// Functions to query AreasDaysRecords (as a Stream and as a Future).
+Future<int> queryAreasDaysRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AreasDaysRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<AreasDaysRecord>> queryAreasDaysRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -112,6 +132,16 @@ Future<FFFirestorePage<AreasDaysRecord>> queryAreasDaysRecordPage({
     );
 
 /// Functions to query AreasWeeksRecords (as a Stream and as a Future).
+Future<int> queryAreasWeeksRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AreasWeeksRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<AreasWeeksRecord>> queryAreasWeeksRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -154,6 +184,16 @@ Future<FFFirestorePage<AreasWeeksRecord>> queryAreasWeeksRecordPage({
     );
 
 /// Functions to query CompaniesRecords (as a Stream and as a Future).
+Future<int> queryCompaniesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompaniesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<CompaniesRecord>> queryCompaniesRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -196,6 +236,16 @@ Future<FFFirestorePage<CompaniesRecord>> queryCompaniesRecordPage({
     );
 
 /// Functions to query CompanyPricesDaysRecords (as a Stream and as a Future).
+Future<int> queryCompanyPricesDaysRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompanyPricesDaysRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<CompanyPricesDaysRecord>> queryCompanyPricesDaysRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -239,6 +289,16 @@ Future<FFFirestorePage<CompanyPricesDaysRecord>>
         );
 
 /// Functions to query CompanyPricesWeekRecords (as a Stream and as a Future).
+Future<int> queryCompanyPricesWeekRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CompanyPricesWeekRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<CompanyPricesWeekRecord>> queryCompanyPricesWeekRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -282,6 +342,16 @@ Future<FFFirestorePage<CompanyPricesWeekRecord>>
         );
 
 /// Functions to query OfficialSpotRecords (as a Stream and as a Future).
+Future<int> queryOfficialSpotRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      OfficialSpotRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
 Stream<List<OfficialSpotRecord>> queryOfficialSpotRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
@@ -322,6 +392,22 @@ Future<FFFirestorePage<OfficialSpotRecord>> queryOfficialSpotRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
+
+Future<int> queryCollectionCount(
+  Query collection, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) {
+  final builder = queryBuilder ?? (q) => q;
+  var query = builder(collection);
+  if (limit > 0) {
+    query = query.limit(limit);
+  }
+
+  return query.count().get().catchError((err) {
+    print('Error querying $collection: $err');
+  }).then((value) => value.count);
+}
 
 Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
     {Query Function(Query)? queryBuilder,

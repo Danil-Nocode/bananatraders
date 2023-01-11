@@ -1,5 +1,4 @@
 import '../backend/backend.dart';
-import '../components/exit_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -7,19 +6,19 @@ import '../index_trader/index_trader_widget.dart';
 import '../support/support_widget.dart';
 import '../tariffs/tariffs_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
-import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class IndexProductorWidget extends StatefulWidget {
-  const IndexProductorWidget({Key? key}) : super(key: key);
+class IndexProductorCopy3Widget extends StatefulWidget {
+  const IndexProductorCopy3Widget({Key? key}) : super(key: key);
 
   @override
-  _IndexProductorWidgetState createState() => _IndexProductorWidgetState();
+  _IndexProductorCopy3WidgetState createState() =>
+      _IndexProductorCopy3WidgetState();
 }
 
-class _IndexProductorWidgetState extends State<IndexProductorWidget> {
+class _IndexProductorCopy3WidgetState extends State<IndexProductorCopy3Widget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -141,28 +140,15 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                 ),
                               ],
                             ),
-                            InkWell(
-                              onTap: () async {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
-                                      child: ExitWidget(),
-                                    );
-                                  },
-                                ).then((value) => setState(() {}));
-                              },
-                              child: Icon(
-                                Icons.exit_to_app_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 24,
-                              ),
+                            Text(
+                              'RU',
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Akzidenz Grotesk Pro',
+                                    color: Colors.white,
+                                    useGoogleFonts: false,
+                                  ),
                             ),
                           ],
                         ),
@@ -245,92 +231,21 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8, 12, 0, 0),
-                                          child: StreamBuilder<
-                                              List<AreasDaysRecord>>(
-                                            stream: queryAreasDaysRecord(
-                                              queryBuilder: (areasDaysRecord) =>
-                                                  areasDaysRecord.orderBy(
-                                                      'Date',
-                                                      descending: true),
-                                              limit: 2,
+                                          child: Container(
+                                            width: 32,
+                                            height: 32,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 50,
-                                                    height: 50,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryColor,
-                                                    ),
-                                                  ),
-                                                );
-                                              }
-                                              List<AreasDaysRecord>
-                                                  containerAreasDaysRecordList =
-                                                  snapshot.data!;
-                                              return Container(
-                                                width: 32,
-                                                height: 32,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(16),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    if (functions
-                                                            .functionOfComparison(
-                                                                containerAreasDaysRecordList
-                                                                    .toList())
-                                                            .toString() ==
-                                                        '0')
-                                                      Icon(
-                                                        Icons
-                                                            .arrow_upward_outlined,
-                                                        color:
-                                                            Color(0xFF4499E8),
-                                                        size: 18,
-                                                      ),
-                                                    if (functions
-                                                            .functionOfComparison(
-                                                                containerAreasDaysRecordList
-                                                                    .toList())
-                                                            .toString() ==
-                                                        '2')
-                                                      Icon(
-                                                        Icons.arrow_downward,
-                                                        color:
-                                                            Color(0xFFFF0000),
-                                                        size: 18,
-                                                      ),
-                                                    if (functions
-                                                            .functionOfComparison(
-                                                                containerAreasDaysRecordList
-                                                                    .toList())
-                                                            .toString() ==
-                                                        '1')
-                                                      Icon(
-                                                        Icons.remove,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                        size: 18,
-                                                      ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
+                                            child: Icon(
+                                              Icons.arrow_upward,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              size: 18,
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -635,46 +550,40 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                             ),
                                             child: Stack(
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 16, 0),
-                                                  child: Container(
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  child: custom_widgets
+                                                      .ChartCustom(
                                                     width:
                                                         MediaQuery.of(context)
                                                             .size
                                                             .width,
                                                     height: 150,
-                                                    child: custom_widgets
-                                                        .ChartCustom(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 150,
-                                                      period: FFAppState().spot,
-                                                      valuesDays:
-                                                          containerAreasDaysRecordList
-                                                              .map((e) => e.avg)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      valuesWeeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) => e.avg)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      weeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) => e
-                                                                  .numberOfWeek)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      dateDays:
-                                                          containerAreasDaysRecordList
-                                                              .map(
-                                                                  (e) => e.date)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                    ),
+                                                    period: FFAppState().spot,
+                                                    valuesDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) => e.avg)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    valuesWeeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) => e.avg)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    weeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.numberOfWeek)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    dateDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) => e.date)
+                                                            .withoutNulls
+                                                            .toList(),
                                                   ),
                                                 ),
                                                 if (FFAppState().spot !=
@@ -1287,49 +1196,43 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                             ),
                                             child: Stack(
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 16, 0),
-                                                  child: Container(
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  child: custom_widgets
+                                                      .ChartCustom(
                                                     width:
                                                         MediaQuery.of(context)
                                                             .size
                                                             .width,
                                                     height: 150,
-                                                    child: custom_widgets
-                                                        .ChartCustom(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 150,
-                                                      period: FFAppState()
-                                                          .spotNorte,
-                                                      valuesDays:
-                                                          containerAreasDaysRecordList
-                                                              .map((e) =>
-                                                                  e.spotNorte)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      valuesWeeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) =>
-                                                                  e.avgNorte)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      weeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) => e
-                                                                  .numberOfWeek)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      dateDays:
-                                                          containerAreasDaysRecordList
-                                                              .map(
-                                                                  (e) => e.date)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                    ),
+                                                    period:
+                                                        FFAppState().spotNorte,
+                                                    valuesDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) =>
+                                                                e.spotNorte)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    valuesWeeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.avgNorte)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    weeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.numberOfWeek)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    dateDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) => e.date)
+                                                            .withoutNulls
+                                                            .toList(),
                                                   ),
                                                 ),
                                                 if (FFAppState().spotNorte !=
@@ -1950,49 +1853,43 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                             ),
                                             child: Stack(
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 16, 0),
-                                                  child: Container(
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  child: custom_widgets
+                                                      .ChartCustom(
                                                     width:
                                                         MediaQuery.of(context)
                                                             .size
                                                             .width,
                                                     height: 150,
-                                                    child: custom_widgets
-                                                        .ChartCustom(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 150,
-                                                      period: FFAppState()
-                                                          .spotCentro,
-                                                      valuesDays:
-                                                          containerAreasDaysRecordList
-                                                              .map((e) =>
-                                                                  e.spotCentre)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      valuesWeeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) =>
-                                                                  e.avgCentre)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      weeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) => e
-                                                                  .numberOfWeek)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      dateDays:
-                                                          containerAreasDaysRecordList
-                                                              .map(
-                                                                  (e) => e.date)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                    ),
+                                                    period:
+                                                        FFAppState().spotCentro,
+                                                    valuesDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) =>
+                                                                e.spotCentre)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    valuesWeeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.avgCentre)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    weeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.numberOfWeek)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    dateDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) => e.date)
+                                                            .withoutNulls
+                                                            .toList(),
                                                   ),
                                                 ),
                                                 if (FFAppState().spotCentro !=
@@ -2611,49 +2508,43 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                             ),
                                             child: Stack(
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 16, 0),
-                                                  child: Container(
+                                                Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  child: custom_widgets
+                                                      .ChartCustom(
                                                     width:
                                                         MediaQuery.of(context)
                                                             .size
                                                             .width,
                                                     height: 150,
-                                                    child: custom_widgets
-                                                        .ChartCustom(
-                                                      width:
-                                                          MediaQuery.of(context)
-                                                              .size
-                                                              .width,
-                                                      height: 150,
-                                                      period:
-                                                          FFAppState().spotSur,
-                                                      valuesDays:
-                                                          containerAreasDaysRecordList
-                                                              .map((e) =>
-                                                                  e.spotSur)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      valuesWeeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) =>
-                                                                  e.avgSur)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      weeks:
-                                                          containerAreasWeeksRecordList
-                                                              .map((e) => e
-                                                                  .numberOfWeek)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                      dateDays:
-                                                          containerAreasDaysRecordList
-                                                              .map(
-                                                                  (e) => e.date)
-                                                              .withoutNulls
-                                                              .toList(),
-                                                    ),
+                                                    period:
+                                                        FFAppState().spotSur,
+                                                    valuesDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) =>
+                                                                e.spotSur)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    valuesWeeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map(
+                                                                (e) => e.avgSur)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    weeks:
+                                                        containerAreasWeeksRecordList
+                                                            .map((e) =>
+                                                                e.numberOfWeek)
+                                                            .withoutNulls
+                                                            .toList(),
+                                                    dateDays:
+                                                        containerAreasDaysRecordList
+                                                            .map((e) => e.date)
+                                                            .withoutNulls
+                                                            .toList(),
                                                   ),
                                                 ),
                                                 if (FFAppState().spotSur !=
@@ -3247,58 +3138,63 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                             ],
                           ),
                         ),
-                        StreamBuilder<List<CompaniesRecord>>(
-                          stream: queryCompaniesRecord(
-                            queryBuilder: (companiesRecord) => companiesRecord
-                                .where('Area', isEqualTo: 'Norte')
-                                .orderBy('DateForSorting'),
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50,
-                                  height: 50,
-                                  child: CircularProgressIndicator(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                  ),
-                                ),
-                              );
-                            }
-                            List<CompaniesRecord> columnCompaniesRecordList =
-                                snapshot.data!;
-                            return Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: List.generate(
-                                  columnCompaniesRecordList.length,
-                                  (columnIndex) {
-                                final columnCompaniesRecord =
-                                    columnCompaniesRecordList[columnIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width: 80,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            if (columnIndex == 0)
-                                              Text(
-                                                'Fabricante',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                        Stack(
+                          children: [
+                            StreamBuilder<List<CompaniesRecord>>(
+                              stream: queryCompaniesRecord(
+                                queryBuilder: (companiesRecord) =>
+                                    companiesRecord
+                                        .where('Area', isEqualTo: 'Norte')
+                                        .orderBy('DateForSorting'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<CompaniesRecord>
+                                    columnCompaniesRecordList = snapshot.data!;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: List.generate(
+                                      columnCompaniesRecordList.length,
+                                      (columnIndex) {
+                                    final columnCompaniesRecord =
+                                        columnCompaniesRecordList[columnIndex];
+                                    return Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16, 0, 16, 0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: 80,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                if (columnIndex == 0)
+                                                  Text(
+                                                    'Fabricante',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyText2
                                                         .override(
                                                           fontFamily:
@@ -3308,11 +3204,11 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           useGoogleFonts: false,
                                                           lineHeight: 1.9,
                                                         ),
-                                              ),
-                                            Text(
-                                              columnCompaniesRecord.name!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                                  ),
+                                                Text(
+                                                  columnCompaniesRecord.name!,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily:
@@ -3321,93 +3217,96 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                         useGoogleFonts: false,
                                                         lineHeight: 1.9,
                                                       ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
                                           ),
-                                          child: Stack(
+                                          Expanded(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Stack(
+                                                children: [],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
+                                );
+                              },
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          96, 0, 0, 0),
+                                      child: Container(
+                                        constraints: BoxConstraints(
+                                          maxHeight: 1000,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: Image.asset(
+                                              'assets/images/Rectangle_169_(3).png',
+                                            ).image,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16, 16, 16, 16),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
-                                              Align(
-                                                alignment:
-                                                    AlignmentDirectional(0, 0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.fill,
-                                                      image: Image.asset(
-                                                        'assets/images/Rectangle_169_(2).png',
-                                                      ).image,
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16, 16, 16, 16),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Expanded(
-                                                          child: FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              await Navigator
-                                                                  .push(
-                                                                context,
-                                                                MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          TariffsWidget(),
-                                                                ),
-                                                              );
-                                                            },
-                                                            text:
-                                                                'Ver precios de productores del norte',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 130,
-                                                              height: 35,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryColor,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .subtitle2
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 1,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          35),
-                                                            ),
-                                                          ),
+                                              Expanded(
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            TariffsWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                  text:
+                                                      'Ver 21 productores del norte mas',
+                                                  options: FFButtonOptions(
+                                                    width: 130,
+                                                    height: 35,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryColor,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          useGoogleFonts: false,
                                                         ),
-                                                      ],
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1,
                                                     ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            35),
                                                   ),
                                                 ),
                                               ),
@@ -3415,12 +3314,12 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                );
-                              }),
-                            );
-                          },
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -3534,7 +3433,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Compra - Centro',
+                                    'Compra - Centre',
                                     style: FlutterFlowTheme.of(context).title3,
                                   ),
                                 ],
@@ -3660,7 +3559,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           );
                                                         },
                                                         text:
-                                                            'Ver precios de productores del centro',
+                                                            'Ver 21 productores del norte mas',
                                                         options:
                                                             FFButtonOptions(
                                                           width: 130,
@@ -3944,7 +3843,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           );
                                                         },
                                                         text:
-                                                            'Ver precios de productores del sur',
+                                                            'Ver 21 productores del norte mas',
                                                         options:
                                                             FFButtonOptions(
                                                           width: 130,

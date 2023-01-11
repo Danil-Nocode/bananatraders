@@ -97,7 +97,7 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser!.loggedIn
-              ? IndexProductorWidget()
+              ? SplashScreenWidget()
               : LoginWidget(),
     );
   }

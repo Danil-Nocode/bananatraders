@@ -1,11 +1,12 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../cambios/cambios_widget.dart';
+import '../components/exit_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../login/login_widget.dart';
+import '../support/support_widget.dart';
 import '../tariffs/tariffs_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -115,10 +116,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                             ? textOfficialSpotRecordList.first
                                             : null;
                                     return Text(
-                                      formatNumber(
-                                        textOfficialSpotRecord!.price!,
-                                        formatType: FormatType.decimal,
-                                      ),
+                                      textOfficialSpotRecord!.price!.toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle2
                                           .override(
@@ -133,24 +131,25 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                             ),
                             InkWell(
                               onTap: () async {
-                                await signOut();
-                                await Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginWidget(),
-                                  ),
-                                  (r) => false,
-                                );
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
+                                      child: ExitWidget(),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
                               },
-                              child: Text(
-                                'RU',
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Akzidenz Grotesk Pro',
-                                      color: Colors.white,
-                                      useGoogleFonts: false,
-                                    ),
+                              child: Icon(
+                                Icons.exit_to_app_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 24,
                               ),
                             ),
                           ],
@@ -243,33 +242,94 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8, 12, 0, 0),
-                                            child: Container(
-                                              width: 40,
-                                              height: 40,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(16),
+                                            child: StreamBuilder<
+                                                List<AreasDaysRecord>>(
+                                              stream: queryAreasDaysRecord(
+                                                queryBuilder:
+                                                    (areasDaysRecord) =>
+                                                        areasDaysRecord.orderBy(
+                                                            'Date',
+                                                            descending: true),
+                                                limit: 2,
                                               ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Icon(
-                                                    Icons.arrow_upward_outlined,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                    size: 18,
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50,
+                                                      height: 50,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                List<AreasDaysRecord>
+                                                    containerAreasDaysRecordList =
+                                                    snapshot.data!;
+                                                return Container(
+                                                  width: 32,
+                                                  height: 32,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16),
                                                   ),
-                                                  Icon(
-                                                    Icons.arrow_downward,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryColor,
-                                                    size: 18,
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      if (functions
+                                                              .functionOfComparison(
+                                                                  containerAreasDaysRecordList
+                                                                      .toList())
+                                                              .toString() ==
+                                                          '0')
+                                                        Icon(
+                                                          Icons
+                                                              .arrow_upward_outlined,
+                                                          color:
+                                                              Color(0xFF4499E8),
+                                                          size: 18,
+                                                        ),
+                                                      if (functions
+                                                              .functionOfComparison(
+                                                                  containerAreasDaysRecordList
+                                                                      .toList())
+                                                              .toString() ==
+                                                          '2')
+                                                        Icon(
+                                                          Icons.arrow_downward,
+                                                          color:
+                                                              Color(0xFFFF0000),
+                                                          size: 18,
+                                                        ),
+                                                      if (functions
+                                                              .functionOfComparison(
+                                                                  containerAreasDaysRecordList
+                                                                      .toList())
+                                                              .toString() ==
+                                                          '1')
+                                                        Icon(
+                                                          Icons.remove,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryColor,
+                                                          size: 18,
+                                                        ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -574,38 +634,43 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              height: 150,
-                                              child: custom_widgets.ChartCustom(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(16, 0, 16, 0),
+                                              child: Container(
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width,
                                                 height: 150,
-                                                period: FFAppState().spot,
-                                                valuesDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.avg)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                valuesWeeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) => e.avg)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                weeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) =>
-                                                            e.numberOfWeek)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                dateDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.date)
-                                                        .withoutNulls
-                                                        .toList(),
+                                                child:
+                                                    custom_widgets.ChartCustom(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  period: FFAppState().spot,
+                                                  valuesDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.avg)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  valuesWeeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) => e.avg)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  weeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) =>
+                                                              e.numberOfWeek)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  dateDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.date)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -1133,38 +1198,46 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              height: 150,
-                                              child: custom_widgets.ChartCustom(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(16, 0, 16, 0),
+                                              child: Container(
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width,
                                                 height: 150,
-                                                period: FFAppState().spotNorte,
-                                                valuesDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.spotNorte)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                valuesWeeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) => e.avgNorte)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                weeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) =>
-                                                            e.numberOfWeek)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                dateDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.date)
-                                                        .withoutNulls
-                                                        .toList(),
+                                                child:
+                                                    custom_widgets.ChartCustom(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  period:
+                                                      FFAppState().spotNorte,
+                                                  valuesDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) =>
+                                                              e.spotNorte)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  valuesWeeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map(
+                                                              (e) => e.avgNorte)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  weeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) =>
+                                                              e.numberOfWeek)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  dateDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.date)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -1700,39 +1773,46 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              height: 150,
-                                              child: custom_widgets.ChartCustom(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(16, 0, 16, 0),
+                                              child: Container(
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width,
                                                 height: 150,
-                                                period: FFAppState().spotCentro,
-                                                valuesDays:
-                                                    containerAreasDaysRecordList
-                                                        .map(
-                                                            (e) => e.spotCentre)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                valuesWeeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) => e.avgCentre)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                weeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) =>
-                                                            e.numberOfWeek)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                dateDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.date)
-                                                        .withoutNulls
-                                                        .toList(),
+                                                child:
+                                                    custom_widgets.ChartCustom(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  period:
+                                                      FFAppState().spotCentro,
+                                                  valuesDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) =>
+                                                              e.spotCentre)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  valuesWeeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) =>
+                                                              e.avgCentre)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  weeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) =>
+                                                              e.numberOfWeek)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  dateDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.date)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -2266,38 +2346,43 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
-                                            child: Container(
-                                              width: MediaQuery.of(context)
-                                                  .size
-                                                  .width,
-                                              height: 150,
-                                              child: custom_widgets.ChartCustom(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(16, 0, 16, 0),
+                                              child: Container(
                                                 width: MediaQuery.of(context)
                                                     .size
                                                     .width,
                                                 height: 150,
-                                                period: FFAppState().spotSur,
-                                                valuesDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.spotSur)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                valuesWeeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) => e.avgSur)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                weeks:
-                                                    containerAreasWeeksRecordList
-                                                        .map((e) =>
-                                                            e.numberOfWeek)
-                                                        .withoutNulls
-                                                        .toList(),
-                                                dateDays:
-                                                    containerAreasDaysRecordList
-                                                        .map((e) => e.date)
-                                                        .withoutNulls
-                                                        .toList(),
+                                                child:
+                                                    custom_widgets.ChartCustom(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 150,
+                                                  period: FFAppState().spotSur,
+                                                  valuesDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.spotSur)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  valuesWeeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) => e.avgSur)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  weeks:
+                                                      containerAreasWeeksRecordList
+                                                          .map((e) =>
+                                                              e.numberOfWeek)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                  dateDays:
+                                                      containerAreasDaysRecordList
+                                                          .map((e) => e.date)
+                                                          .withoutNulls
+                                                          .toList(),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -3605,7 +3690,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaNorte > 0) {
+                                          if (FFAppState().semanaNorte > 1) {
                                             setState(() {
                                               FFAppState().semanaNorte =
                                                   FFAppState().semanaNorte + -1;
@@ -4505,7 +4590,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaCentre > 0) {
+                                          if (FFAppState().semanaCentre > 1) {
                                             setState(() {
                                               FFAppState().semanaCentre =
                                                   FFAppState().semanaCentre +
@@ -5407,7 +5492,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                     children: [
                                       InkWell(
                                         onTap: () async {
-                                          if (FFAppState().semanaSur > 0) {
+                                          if (FFAppState().semanaSur > 1) {
                                             setState(() {
                                               FFAppState().semanaSur =
                                                   FFAppState().semanaSur + -1;
@@ -5479,20 +5564,30 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '¿Encontraste un error? ',
+                    '¿Alguna duda?',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Akzidenz Grotesk Pro',
                           color: Colors.black,
                           useGoogleFonts: false,
                         ),
                   ),
-                  Text(
-                    'Informar',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Akzidenz Grotesk Pro',
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          useGoogleFonts: false,
+                  InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SupportWidget(),
                         ),
+                      );
+                    },
+                    child: Text(
+                      'Contáctanos',
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Akzidenz Grotesk Pro',
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            useGoogleFonts: false,
+                          ),
+                    ),
                   ),
                 ],
               ),

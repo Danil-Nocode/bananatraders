@@ -1,21 +1,20 @@
 import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CancelTarifWidget extends StatefulWidget {
-  const CancelTarifWidget({Key? key}) : super(key: key);
+class ExitWidget extends StatefulWidget {
+  const ExitWidget({Key? key}) : super(key: key);
 
   @override
-  _CancelTarifWidgetState createState() => _CancelTarifWidgetState();
+  _ExitWidgetState createState() => _ExitWidgetState();
 }
 
-class _CancelTarifWidgetState extends State<CancelTarifWidget> {
+class _ExitWidgetState extends State<ExitWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -59,7 +58,7 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              '¿Cancelar suscripción?',
+                              '¿Retire de sesión?',
                               textAlign: TextAlign.center,
                               style:
                                   FlutterFlowTheme.of(context).title2.override(
@@ -69,27 +68,6 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                                         fontSize: 34,
                                         useGoogleFonts: false,
                                       ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                            child: Text(
-                              'En caso de cancelar su plan actual a partir del (день) el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText2
-                                  .override(
-                                    fontFamily: 'Akzidenz Grotesk Pro',
-                                    fontSize: 14,
-                                    useGoogleFonts: false,
-                                  ),
                             ),
                           ),
                         ),
@@ -127,12 +105,15 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              final usersUpdateData = createUsersRecordData(
-                                tariff: 'GRATUITO',
-                              );
-                              await currentUserReference!
-                                  .update(usersUpdateData);
+                              await signOut();
                               Navigator.pop(context);
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginWidget(),
+                                ),
+                                (r) => false,
+                              );
                             },
                             text: 'Sí',
                             options: FFButtonOptions(
