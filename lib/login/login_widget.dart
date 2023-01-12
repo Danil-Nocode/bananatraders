@@ -122,10 +122,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                             indicatorColor: Colors.white,
                             tabs: [
                               Tab(
-                                text: 'Sign In',
+                                text: 'Autorización',
                               ),
                               Tab(
-                                text: 'Sign Up',
+                                text: 'Registro',
                               ),
                             ],
                           ),
@@ -158,7 +158,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                              hintText: 'Email Address',
+                                              hintText: 'E-mail',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -236,7 +236,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                              hintText: 'Password',
+                                              hintText: 'Contraseña',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -365,7 +365,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 }
                                               }
                                             },
-                                            text: 'Login',
+                                            text: 'Ingreso',
                                             options: FFButtonOptions(
                                               width: 230,
                                               height: 50,
@@ -406,7 +406,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 ),
                                               );
                                             },
-                                            text: 'Forgot Password?',
+                                            text: 'Olvidó su contraseña?',
                                             options: FFButtonOptions(
                                               width: 170,
                                               height: 40,
@@ -461,7 +461,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         useGoogleFonts: false,
                                                         lineHeight: 2,
                                                       ),
-                                              hintText: 'Email Address',
+                                              hintText: 'E-mail',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -534,7 +534,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle2,
-                                              hintText: 'Password',
+                                              hintText: 'Contraseña',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -623,7 +623,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle2,
-                                              hintText: 'Confirm Password',
+                                              hintText: 'Confirmar contraseña',
                                               hintStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -745,7 +745,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 ),
                                               );
                                             },
-                                            text: 'Create Account',
+                                            text: 'Crea una cuenta',
                                             options: FFButtonOptions(
                                               width: 230,
                                               height: 50,
@@ -799,7 +799,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             );
                           },
                           child: Text(
-                            'Technical support',
+                            'Soporte técnico',
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).subtitle1.override(

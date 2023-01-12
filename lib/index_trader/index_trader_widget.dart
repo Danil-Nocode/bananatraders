@@ -1,6 +1,6 @@
 import '../backend/backend.dart';
-import '../cambios/cambios_widget.dart';
 import '../components/exit_widget.dart';
+import '../components/func_not_ready_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../support/support_widget.dart';
@@ -386,16 +386,19 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                   EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  await Navigator.push(
-                                    context,
-                                    PageTransition(
-                                      type: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 300),
-                                      reverseDuration:
-                                          Duration(milliseconds: 300),
-                                      child: CambiosWidget(),
-                                    ),
-                                  );
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: FuncNotReadyWidget(),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -3020,615 +3023,734 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day1 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    1)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day1.length,
-                                                                  (day1Index) {
-                                                            final day1Item =
-                                                                day1[day1Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day1Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day1Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day2 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    2)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day2.length,
-                                                                  (day2Index) {
-                                                            final day2Item =
-                                                                day2[day2Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day2Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day2Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day3 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    3)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day3.length,
-                                                                  (day3Index) {
-                                                            final day3Item =
-                                                                day3[day3Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day3Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day3Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day4 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    4)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day4.length,
-                                                                  (day4Index) {
-                                                            final day4Item =
-                                                                day4[day4Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day4Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day4Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day5 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    5)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day5.length,
-                                                                  (day5Index) {
-                                                            final day5Item =
-                                                                day5[day5Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day5Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day5Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day6 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    6)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day6.length,
-                                                                  (day6Index) {
-                                                            final day6Item =
-                                                                day6[day6Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day6Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day6Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day7 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    7)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day7.length,
-                                                                  (day7Index) {
-                                                            final day7Item =
-                                                                day7[day7Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day7Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText2
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
-                                                                          useGoogleFonts:
-                                                                              false,
-                                                                          lineHeight:
-                                                                              1.9,
-                                                                        ),
-                                                                  ),
-                                                                Text(
-                                                                  day7Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  StreamBuilder<
-                                                      List<
-                                                          CompanyPricesWeekRecord>>(
-                                                    stream:
-                                                        queryCompanyPricesWeekRecord(
-                                                      queryBuilder: (companyPricesWeekRecord) =>
-                                                          companyPricesWeekRecord
-                                                              .where('Company',
-                                                                  isEqualTo:
-                                                                      columnCompaniesRecord
-                                                                          .reference)
-                                                              .where(
-                                                                  'Number_of_week',
-                                                                  isEqualTo: FFAppState()
-                                                                      .semanaNorte
-                                                                      .toString()),
-                                                      singleRecord: true,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50,
-                                                            height: 50,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryColor,
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<CompanyPricesWeekRecord>
-                                                          columnCompanyPricesWeekRecordList =
-                                                          snapshot.data!;
-                                                      // Return an empty Container when the item does not exist.
-                                                      if (snapshot
-                                                          .data!.isEmpty) {
-                                                        return Container();
-                                                      }
-                                                      final columnCompanyPricesWeekRecord =
-                                                          columnCompanyPricesWeekRecordList
-                                                                  .isNotEmpty
-                                                              ? columnCompanyPricesWeekRecordList
-                                                                  .first
-                                                              : null;
-                                                      return Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          Column(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day1 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      1)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if (columnIndex ==
-                                                                  0)
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day1.length,
+                                                                    (day1Index) {
+                                                              final day1Item =
+                                                                  day1[
+                                                                      day1Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day1Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day1Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day2 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      2)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day2.length,
+                                                                    (day2Index) {
+                                                              final day2Item =
+                                                                  day2[
+                                                                      day2Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day2Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day2Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day3 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      3)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day3.length,
+                                                                    (day3Index) {
+                                                              final day3Item =
+                                                                  day3[
+                                                                      day3Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day3Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day3Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day4 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      4)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day4.length,
+                                                                    (day4Index) {
+                                                              final day4Item =
+                                                                  day4[
+                                                                      day4Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day4Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day4Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day5 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      5)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day5.length,
+                                                                    (day5Index) {
+                                                              final day5Item =
+                                                                  day5[
+                                                                      day5Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day5Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day5Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day6 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      6)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day6.length,
+                                                                    (day6Index) {
+                                                              final day6Item =
+                                                                  day6[
+                                                                      day6Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day6Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day6Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day7 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      7)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day7.length,
+                                                                    (day7Index) {
+                                                              final day7Item =
+                                                                  day7[
+                                                                      day7Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day7Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
+                                                                    ),
+                                                                  Text(
+                                                                    day7Item
+                                                                        .price!
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: StreamBuilder<
+                                                        List<
+                                                            CompanyPricesWeekRecord>>(
+                                                      stream:
+                                                          queryCompanyPricesWeekRecord(
+                                                        queryBuilder: (companyPricesWeekRecord) => companyPricesWeekRecord
+                                                            .where('Company',
+                                                                isEqualTo:
+                                                                    columnCompaniesRecord
+                                                                        .reference)
+                                                            .where(
+                                                                'Number_of_week',
+                                                                isEqualTo: FFAppState()
+                                                                    .semanaNorte
+                                                                    .toString()),
+                                                        singleRecord: true,
+                                                      ),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50,
+                                                              height: 50,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        List<CompanyPricesWeekRecord>
+                                                            columnCompanyPricesWeekRecordList =
+                                                            snapshot.data!;
+                                                        // Return an empty Container when the item does not exist.
+                                                        if (snapshot
+                                                            .data!.isEmpty) {
+                                                          return Container();
+                                                        }
+                                                        final columnCompanyPricesWeekRecord =
+                                                            columnCompanyPricesWeekRecordList
+                                                                    .isNotEmpty
+                                                                ? columnCompanyPricesWeekRecordList
+                                                                    .first
+                                                                : null;
+                                                        return Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (columnIndex ==
+                                                                    0)
+                                                                  Text(
+                                                                    'Avg',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              10,
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
                                                                 Text(
-                                                                  'Avg',
+                                                                  columnCompanyPricesWeekRecord!
+                                                                      .price!
+                                                                      .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
                                                                       .override(
                                                                         fontFamily:
                                                                             'Akzidenz Grotesk Pro',
-                                                                        fontSize:
-                                                                            10,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                         useGoogleFonts:
@@ -3637,30 +3759,12 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             1.9,
                                                                       ),
                                                                 ),
-                                                              Text(
-                                                                columnCompanyPricesWeekRecord!
-                                                                    .price!
-                                                                    .toString(),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Akzidenz Grotesk Pro',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                      lineHeight:
-                                                                          1.9,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -3787,7 +3891,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Compra - Centre',
+                                    'Compra - Centro',
                                     style: FlutterFlowTheme.of(context).title3,
                                   ),
                                 ],
@@ -3920,543 +4024,634 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day1 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    1)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day1.length,
-                                                                  (day1Index) {
-                                                            final day1Item =
-                                                                day1[day1Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day1Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day1 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      1)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day1.length,
+                                                                    (day1Index) {
+                                                              final day1Item =
+                                                                  day1[
+                                                                      day1Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day1Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day1Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day1Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day2 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    2)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day2.length,
-                                                                  (day2Index) {
-                                                            final day2Item =
-                                                                day2[day2Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day2Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day2 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      2)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day2.length,
+                                                                    (day2Index) {
+                                                              final day2Item =
+                                                                  day2[
+                                                                      day2Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day2Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day2Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day2Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day3 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    3)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day3.length,
-                                                                  (day3Index) {
-                                                            final day3Item =
-                                                                day3[day3Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day3Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day3 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      3)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day3.length,
+                                                                    (day3Index) {
+                                                              final day3Item =
+                                                                  day3[
+                                                                      day3Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day3Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day3Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day3Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day4 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    4)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day4.length,
-                                                                  (day4Index) {
-                                                            final day4Item =
-                                                                day4[day4Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day4Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day4 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      4)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day4.length,
+                                                                    (day4Index) {
+                                                              final day4Item =
+                                                                  day4[
+                                                                      day4Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day4Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day4Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day4Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day5 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    5)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day5.length,
-                                                                  (day5Index) {
-                                                            final day5Item =
-                                                                day5[day5Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day5Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day5 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      5)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day5.length,
+                                                                    (day5Index) {
+                                                              final day5Item =
+                                                                  day5[
+                                                                      day5Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day5Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day5Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day5Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day6 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    6)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day6.length,
-                                                                  (day6Index) {
-                                                            final day6Item =
-                                                                day6[day6Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day6Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day6 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      6)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day6.length,
+                                                                    (day6Index) {
+                                                              final day6Item =
+                                                                  day6[
+                                                                      day6Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day6Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day6Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day6Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day7 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    7)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day7.length,
-                                                                  (day7Index) {
-                                                            final day7Item =
-                                                                day7[day7Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day7Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day7 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      7)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day7.length,
+                                                                    (day7Index) {
+                                                              final day7Item =
+                                                                  day7[
+                                                                      day7Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day7Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day7Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day7Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
                                                   StreamBuilder<
@@ -4512,23 +4707,53 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                         mainAxisSize:
                                                             MainAxisSize.min,
                                                         children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if (columnIndex ==
-                                                                  0)
+                                                          Container(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.08,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (columnIndex ==
+                                                                    0)
+                                                                  Text(
+                                                                    'Avg',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              10,
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
                                                                 Text(
-                                                                  'Avg',
+                                                                  columnCompanyPricesWeekRecord!
+                                                                      .price!
+                                                                      .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
                                                                       .override(
                                                                         fontFamily:
                                                                             'Akzidenz Grotesk Pro',
-                                                                        fontSize:
-                                                                            10,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                         useGoogleFonts:
@@ -4537,26 +4762,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             1.9,
                                                                       ),
                                                                 ),
-                                                              Text(
-                                                                columnCompanyPricesWeekRecord!
-                                                                    .price!
-                                                                    .toString(),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Akzidenz Grotesk Pro',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                      lineHeight:
-                                                                          1.9,
-                                                                    ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ],
                                                       );
@@ -4822,543 +5029,634 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day1 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    1)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day1.length,
-                                                                  (day1Index) {
-                                                            final day1Item =
-                                                                day1[day1Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day1Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day1 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      1)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day1.length,
+                                                                    (day1Index) {
+                                                              final day1Item =
+                                                                  day1[
+                                                                      day1Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day1Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day1Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day1Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day2 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    2)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day2.length,
-                                                                  (day2Index) {
-                                                            final day2Item =
-                                                                day2[day2Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day2Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day2 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      2)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day2.length,
+                                                                    (day2Index) {
+                                                              final day2Item =
+                                                                  day2[
+                                                                      day2Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day2Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day2Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day2Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day3 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    3)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day3.length,
-                                                                  (day3Index) {
-                                                            final day3Item =
-                                                                day3[day3Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day3Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day3 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      3)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day3.length,
+                                                                    (day3Index) {
+                                                              final day3Item =
+                                                                  day3[
+                                                                      day3Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day3Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day3Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day3Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day4 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    4)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day4.length,
-                                                                  (day4Index) {
-                                                            final day4Item =
-                                                                day4[day4Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day4Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day4 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      4)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day4.length,
+                                                                    (day4Index) {
+                                                              final day4Item =
+                                                                  day4[
+                                                                      day4Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day4Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day4Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day4Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day5 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    5)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day5.length,
-                                                                  (day5Index) {
-                                                            final day5Item =
-                                                                day5[day5Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day5Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day5 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      5)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day5.length,
+                                                                    (day5Index) {
+                                                              final day5Item =
+                                                                  day5[
+                                                                      day5Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day5Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day5Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day5Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day6 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    6)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day6.length,
-                                                                  (day6Index) {
-                                                            final day6Item =
-                                                                day6[day6Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day6Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day6 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      6)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day6.length,
+                                                                    (day6Index) {
+                                                              final day6Item =
+                                                                  day6[
+                                                                      day6Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day6Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day6Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day6Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        final day7 =
-                                                            containerCompanyPricesDaysRecordList
-                                                                .where((e) =>
-                                                                    e.dayOfWeek ==
-                                                                    7)
-                                                                .toList()
-                                                                .take(1)
-                                                                .toList();
-                                                        return Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children:
-                                                              List.generate(
-                                                                  day7.length,
-                                                                  (day7Index) {
-                                                            final day7Item =
-                                                                day7[day7Index];
-                                                            return Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                if (columnIndex ==
-                                                                    0)
-                                                                  Text(
-                                                                    dateTimeFormat(
-                                                                      'd/M',
-                                                                      day7Item
-                                                                          .data!,
-                                                                      locale: FFLocalizations.of(
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.08,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0, 0, 5, 0),
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final day7 =
+                                                              containerCompanyPricesDaysRecordList
+                                                                  .where((e) =>
+                                                                      e.dayOfWeek ==
+                                                                      7)
+                                                                  .toList()
+                                                                  .take(1)
+                                                                  .toList();
+                                                          return Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children:
+                                                                List.generate(
+                                                                    day7.length,
+                                                                    (day7Index) {
+                                                              final day7Item =
+                                                                  day7[
+                                                                      day7Index];
+                                                              return Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  if (columnIndex ==
+                                                                      0)
+                                                                    Text(
+                                                                      dateTimeFormat(
+                                                                        'd/M',
+                                                                        day7Item
+                                                                            .data!,
+                                                                        locale:
+                                                                            FFLocalizations.of(context).languageCode,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .languageCode,
+                                                                          .bodyText2
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Akzidenz Grotesk Pro',
+                                                                            color:
+                                                                                Color(0xFF858585),
+                                                                            useGoogleFonts:
+                                                                                false,
+                                                                            lineHeight:
+                                                                                1.9,
+                                                                          ),
                                                                     ),
+                                                                  Text(
+                                                                    day7Item
+                                                                        .price!
+                                                                        .toString(),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText2
+                                                                        .bodyText1
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
-                                                                          color:
-                                                                              Color(0xFF858585),
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
                                                                               1.9,
                                                                         ),
                                                                   ),
-                                                                Text(
-                                                                  day7Item
-                                                                      .price!
-                                                                      .toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                        lineHeight:
-                                                                            1.9,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
+                                                                ],
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
                                                     ),
                                                   ),
                                                   StreamBuilder<
@@ -5414,23 +5712,53 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                         mainAxisSize:
                                                             MainAxisSize.min,
                                                         children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              if (columnIndex ==
-                                                                  0)
+                                                          Container(
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.08,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (columnIndex ==
+                                                                    0)
+                                                                  Text(
+                                                                    'Avg',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              10,
+                                                                          fontWeight:
+                                                                              FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              false,
+                                                                          lineHeight:
+                                                                              1.9,
+                                                                        ),
+                                                                  ),
                                                                 Text(
-                                                                  'Avg',
+                                                                  columnCompanyPricesWeekRecord!
+                                                                      .price!
+                                                                      .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
                                                                       .override(
                                                                         fontFamily:
                                                                             'Akzidenz Grotesk Pro',
-                                                                        fontSize:
-                                                                            10,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                         useGoogleFonts:
@@ -5439,26 +5767,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             1.9,
                                                                       ),
                                                                 ),
-                                                              Text(
-                                                                columnCompanyPricesWeekRecord!
-                                                                    .price!
-                                                                    .toString(),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Akzidenz Grotesk Pro',
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                      lineHeight:
-                                                                          1.9,
-                                                                    ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
                                                         ],
                                                       );
