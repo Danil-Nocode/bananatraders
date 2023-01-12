@@ -1387,7 +1387,7 @@ class _IndexTraderCopyWidgetState extends State<IndexTraderCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(
@@ -2042,7 +2042,7 @@ class _IndexTraderCopyWidgetState extends State<IndexTraderCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(
@@ -2697,7 +2697,7 @@ class _IndexTraderCopyWidgetState extends State<IndexTraderCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(

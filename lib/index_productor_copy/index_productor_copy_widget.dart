@@ -1568,7 +1568,7 @@ class _IndexProductorCopyWidgetState extends State<IndexProductorCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(
@@ -2223,7 +2223,7 @@ class _IndexProductorCopyWidgetState extends State<IndexProductorCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(
@@ -2878,7 +2878,7 @@ class _IndexProductorCopyWidgetState extends State<IndexProductorCopyWidget> {
                                 child: InkWell(
                                   onTap: () async {
                                     FFAppState().update(() {
-                                      FFAppState().spot = '1 mes';
+                                      // FFAppState().spot = '1 mes';
                                     });
                                   },
                                   child: Row(

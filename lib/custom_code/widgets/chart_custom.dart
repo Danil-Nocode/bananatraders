@@ -44,6 +44,7 @@ class _ChartCustomState extends State<ChartCustom> {
 
   @override
   Widget build(BuildContext context) {
+    getData(widget.period!, widget.valuesDays!, widget.valuesWeeks!);
     return LineChart(
       mainData(),
       swapAnimationDuration: Duration(milliseconds: 150), // Optional
@@ -177,6 +178,7 @@ class _ChartCustomState extends State<ChartCustom> {
       period = 620;
     }
     if (period > 90) {
+      period = period ~/ 7;
       values = valuesWeeks;
     } else {
       values = valuesDays;
@@ -185,17 +187,23 @@ class _ChartCustomState extends State<ChartCustom> {
     int maxLenght = values.length;
     if (period > maxLenght) {
       period = maxLenght;
+      if (period > 90) {
+        period = period ~/ 7;
+      }
     }
-    Iterable<double> inReverse = values.reversed;
-    var valuesInReverse = inReverse.toList();
-    newValues = valuesInReverse.sublist(0, period);
+
+    // Iterable<double> inReverse = values.reversed;
+    // var valuesInReverse = inReverse.toList();
+    newValues = values.sublist(0, period);
     newValues = newValues.reversed.toList();
+
     double i = 0;
     List<FlSpot> data = [];
     for (var value in newValues) {
       data.add(FlSpot(i, value));
       i++;
     }
+
     return data;
   }
 
@@ -208,9 +216,6 @@ class _ChartCustomState extends State<ChartCustom> {
           getTooltipItems: (List<LineBarSpot> touchedBarSpots) {
             return touchedBarSpots.map((barSpot) {
               final flSpot = barSpot;
-              if (flSpot.x == 0 || flSpot.x == 6) {
-                return null;
-              }
 
               TextAlign textAlign;
               switch (flSpot.x.toInt()) {
@@ -223,20 +228,53 @@ class _ChartCustomState extends State<ChartCustom> {
                 default:
                   textAlign = TextAlign.center;
               }
+
               String date = '8/1';
-              double valueCustom = 1;
+
+              int period = 7;
+              String periodStr = widget.period!;
+              if (periodStr == '1 sem') {
+                period = 7;
+              } else if (periodStr == '1 mes') {
+                period = 30;
+              } else if (periodStr == '3 mes') {
+                period = 90;
+              } else if (periodStr == '6 mes') {
+                period = 26;
+              } else if (periodStr == '1 año') {
+                period = 50;
+              } else {
+                period = 50;
+              }
+
+              // print(widget.weeks);
+
               if (widget.period == '1 sem' ||
                   widget.period == '1 mes' ||
                   widget.period == '3 mes') {
+                // date = '${widget.dateDays![flSpot.x.toInt()].day}/${widget.dateDays![flSpot.x.toInt()].month}';
+                List<DateTime> newValues = widget.dateDays!.sublist(0, period);
+                Iterable<DateTime> inReverse = newValues.reversed;
+                List<DateTime> valuesList = inReverse.toList();
                 date =
-                    '${widget.dateDays![flSpot.x.toInt()].day}/${widget.dateDays![flSpot.x.toInt()].month}';
-                valueCustom = widget.valuesDays![flSpot.x.toInt()];
+                    '${DateFormat('dd').format(valuesList[flSpot.x.toInt()])}/${DateFormat('MM').format(valuesList[flSpot.x.toInt()])}';
               } else {
-                date = '${widget.weeks![flSpot.x.toInt()]} sem';
-                valueCustom = widget.valuesWeeks![flSpot.x.toInt()];
+                // date = '${widget.weeks![flSpot.x.toInt()]} sem';
+
+                Iterable<int> inReverse = widget.weeks!.reversed;
+
+                List<int> newValues = widget.weeks!.toList().sublist(0, period);
+
+                int index = flSpot.x.toInt();
+                if (periodStr == '6 mes') {
+                  index++;
+                }
+                inReverse = newValues.reversed;
+                List<int> valuesList = inReverse.toList();
+                date = '${valuesList[index]} sem';
               }
               return LineTooltipItem(
-                '${date}\n${valueCustom}\$',
+                '${date}\n${flSpot.y}\$',
                 const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

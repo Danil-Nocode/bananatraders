@@ -477,8 +477,8 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
             ),
             StreamBuilder<List<AreasWeeksRecord>>(
               stream: queryAreasWeeksRecord(
-                queryBuilder: (areasWeeksRecord) =>
-                    areasWeeksRecord.orderBy('Number_of_week'),
+                queryBuilder: (areasWeeksRecord) => areasWeeksRecord
+                    .orderBy('Number_of_week', descending: true),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
@@ -502,7 +502,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                   child: StreamBuilder<List<AreasDaysRecord>>(
                     stream: queryAreasDaysRecord(
                       queryBuilder: (areasDaysRecord) =>
-                          areasDaysRecord.orderBy('Date'),
+                          areasDaysRecord.orderBy('Date', descending: true),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

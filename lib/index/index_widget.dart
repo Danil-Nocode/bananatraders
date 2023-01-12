@@ -1419,7 +1419,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                             child: InkWell(
                                               onTap: () async {
                                                 FFAppState().update(() {
-                                                  FFAppState().spot = '1 mes';
+                                                  // FFAppState().spot = '1 mes';
                                                 });
                                               },
                                               child: Row(
@@ -1949,7 +1949,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                             child: InkWell(
                                               onTap: () async {
                                                 FFAppState().update(() {
-                                                  FFAppState().spot = '1 mes';
+                                                  // FFAppState().spot = '1 mes';
                                                 });
                                               },
                                               child: Row(
@@ -2474,7 +2474,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                             child: InkWell(
                                               onTap: () async {
                                                 FFAppState().update(() {
-                                                  FFAppState().spot = '1 mes';
+                                                  // FFAppState().spot = '1 mes';
                                                 });
                                               },
                                               child: Row(
