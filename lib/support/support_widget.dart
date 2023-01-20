@@ -253,7 +253,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 onPressed: () async {
                                   await launchUrl(Uri(
                                       scheme: 'mailto',
-                                      path: 'north.dev2@gmail.com',
+                                      path: 'bananasmarket.ec@gmail.com',
                                       query: {
                                         'subject': 'For support',
                                         'body':

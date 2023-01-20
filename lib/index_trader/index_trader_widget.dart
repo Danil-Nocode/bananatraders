@@ -299,7 +299,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               .arrow_upward_outlined,
                                                           color:
                                                               Color(0xFF4499E8),
-                                                          size: 18,
+                                                          size: 22,
                                                         ),
                                                       if (functions
                                                               .functionOfComparison(
@@ -311,7 +311,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                           Icons.arrow_downward,
                                                           color:
                                                               Color(0xFFFF0000),
-                                                          size: 18,
+                                                          size: 22,
                                                         ),
                                                       if (functions
                                                               .functionOfComparison(
@@ -324,7 +324,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryColor,
-                                                          size: 18,
+                                                          size: 22,
                                                         ),
                                                     ],
                                                   ),
@@ -3083,6 +3083,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3099,6 +3101,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3173,6 +3177,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3189,6 +3195,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3263,6 +3271,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3279,6 +3289,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3353,6 +3365,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3369,6 +3383,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3443,6 +3459,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3459,6 +3477,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3533,6 +3553,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3549,6 +3571,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3623,6 +3647,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                                 'Akzidenz Grotesk Pro',
                                                                             color:
                                                                                 Color(0xFF858585),
+                                                                            fontSize:
+                                                                                9,
                                                                             useGoogleFonts:
                                                                                 false,
                                                                             lineHeight:
@@ -3639,6 +3665,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                         .override(
                                                                           fontFamily:
                                                                               'Akzidenz Grotesk Pro',
+                                                                          fontSize:
+                                                                              11,
                                                                           useGoogleFonts:
                                                                               false,
                                                                           lineHeight:
@@ -3751,6 +3779,8 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             'Akzidenz Grotesk Pro',
+                                                                        fontSize:
+                                                                            11,
                                                                         fontWeight:
                                                                             FontWeight.bold,
                                                                         useGoogleFonts:

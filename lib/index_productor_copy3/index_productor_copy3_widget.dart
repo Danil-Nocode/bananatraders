@@ -344,42 +344,31 @@ class _IndexProductorCopy3WidgetState extends State<IndexProductorCopy3Widget> {
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
-                              child: InkWell(
-                                onTap: () async {
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => TariffsWidget(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    FFIcons.ksubtract,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    size: 48,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 8, 0, 0),
+                                    child: Text(
+                                      'Administrar\nsuscripción',
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Akzidenz Grotesk Pro',
+                                            color: Colors.white,
+                                            useGoogleFonts: false,
+                                          ),
                                     ),
-                                  );
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      FFIcons.ksubtract,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      size: 48,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
-                                      child: Text(
-                                        'Administrar\nsuscripción',
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily:
-                                                  'Akzidenz Grotesk Pro',
-                                              color: Colors.white,
-                                              useGoogleFonts: false,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

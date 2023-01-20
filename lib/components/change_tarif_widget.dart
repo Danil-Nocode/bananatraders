@@ -88,7 +88,7 @@ class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Akzidenz Grotesk Pro',
-                                      fontSize: 14,
+                                      fontSize: 18,
                                       useGoogleFonts: false,
                                     ),
                               ),
