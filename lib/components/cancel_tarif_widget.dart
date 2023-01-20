@@ -87,7 +87,7 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                                   .bodyText2
                                   .override(
                                     fontFamily: 'Akzidenz Grotesk Pro',
-                                    fontSize: 14,
+                                    fontSize: 18,
                                     useGoogleFonts: false,
                                   ),
                             ),

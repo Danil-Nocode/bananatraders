@@ -81,7 +81,7 @@ class _FuncNotReadyWidgetState extends State<FuncNotReadyWidget> {
                             onPressed: () async {
                               Navigator.pop(context);
                             },
-                            text: 'Desconectarse',
+                            text: 'Cerrar',
                             options: FFButtonOptions(
                               width: 150,
                               height: 50,

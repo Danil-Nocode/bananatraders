@@ -96,6 +96,12 @@ class FFAppState extends ChangeNotifier {
   set semanaSur(int _value) {
     _semanaSur = _value;
   }
+
+  DateTime? _yearNorte = DateTime.fromMillisecondsSinceEpoch(1673901180000);
+  DateTime? get yearNorte => _yearNorte;
+  set yearNorte(DateTime? _value) {
+    _yearNorte = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -300,7 +300,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                             .arrow_upward_outlined,
                                                         color:
                                                             Color(0xFF4499E8),
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -312,7 +312,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                         Icons.arrow_downward,
                                                         color:
                                                             Color(0xFFFF0000),
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -326,7 +326,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryColor,
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                   ],
                                                 ),

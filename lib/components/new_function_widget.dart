@@ -84,7 +84,13 @@ class _NewFunctionWidgetState extends State<NewFunctionWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 '¿Está seguro? En caso de darse de baja su tarifa será “GRATUITO” a partir del (число) y el acceso a los datos será limitado',
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText2
+                                    .override(
+                                      fontFamily: 'Akzidenz Grotesk Pro',
+                                      fontSize: 18,
+                                      useGoogleFonts: false,
+                                    ),
                               ),
                             ),
                           ),

@@ -299,7 +299,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                             .arrow_upward_outlined,
                                                         color:
                                                             Color(0xFF4499E8),
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -311,7 +311,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                         Icons.arrow_downward,
                                                         color:
                                                             Color(0xFFFF0000),
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -325,7 +325,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryColor,
-                                                        size: 18,
+                                                        size: 22,
                                                       ),
                                                   ],
                                                 ),
