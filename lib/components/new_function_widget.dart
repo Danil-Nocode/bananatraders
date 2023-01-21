@@ -82,15 +82,17 @@ class _NewFunctionWidgetState extends State<NewFunctionWidget> {
                             child: Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: Text(
-                                '¿Está seguro? En caso de darse de baja su tarifa será “GRATUITO” a partir del (число) y el acceso a los datos será limitado',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Akzidenz Grotesk Pro',
-                                      fontSize: 18,
-                                      useGoogleFonts: false,
-                                    ),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  '¿Está seguro? En caso de darse de baja su tarifa será “GRATUITO” a partir del ${currentUserDocument!.dueDate?.toString()} y el acceso a los datos será limitado',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText2
+                                      .override(
+                                        fontFamily: 'Akzidenz Grotesk Pro',
+                                        fontSize: 18,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
                               ),
                             ),
                           ),

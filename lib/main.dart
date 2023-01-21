@@ -12,12 +12,18 @@ import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'index.dart';
+import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initFirebase();
 
   final appState = FFAppState(); // Initialize FFAppState
+  await revenue_cat.initialize(
+    "appl_WrBqCKsllemuReREXBzHydWyJDI",
+    "goog_MUApCVTnzdkouDQYhSxHuHKzrma",
+    loadDataAfterLaunch: true,
+  );
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
@@ -42,7 +48,9 @@ class _MyAppState extends State<MyApp> {
   BananaTradersFirebaseUser? initialUser;
   bool displaySplashImage = true;
 
-  final authUserSub = authenticatedUserStream.listen((_) {});
+  final authUserSub = authenticatedUserStream.listen((user) {
+    revenue_cat.login(user?.uid);
+  });
 
   @override
   void initState() {
