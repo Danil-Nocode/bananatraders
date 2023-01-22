@@ -3211,162 +3211,169 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                             ],
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            StreamBuilder<List<CompaniesRecord>>(
-                              stream: queryCompaniesRecord(
-                                queryBuilder: (companiesRecord) =>
-                                    companiesRecord
-                                        .where('Area', isEqualTo: 'Norte')
-                                        .orderBy('DateForSorting'),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50,
-                                      height: 50,
-                                      child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              StreamBuilder<List<CompaniesRecord>>(
+                                stream: queryCompaniesRecord(
+                                  queryBuilder: (companiesRecord) =>
+                                      companiesRecord
+                                          .where('Area', isEqualTo: 'Norte')
+                                          .orderBy('DateForSorting'),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 50,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<CompaniesRecord>
-                                    columnCompaniesRecordList = snapshot.data!;
-                                return Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: List.generate(
-                                      columnCompaniesRecordList.length,
-                                      (columnIndex) {
-                                    final columnCompaniesRecord =
-                                        columnCompaniesRecordList[columnIndex];
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                if (columnIndex == 0)
+                                    );
+                                  }
+                                  List<CompaniesRecord>
+                                      columnCompaniesRecordList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnCompaniesRecordList.length,
+                                        (columnIndex) {
+                                      final columnCompaniesRecord =
+                                          columnCompaniesRecordList[
+                                              columnIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16, 0, 16, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 80,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  if (columnIndex == 0)
+                                                    Text(
+                                                      'Fabricante',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Akzidenz Grotesk Pro',
+                                                                color: Color(
+                                                                    0xFF858585),
+                                                                useGoogleFonts:
+                                                                    false,
+                                                                lineHeight: 1.9,
+                                                              ),
+                                                    ),
                                                   Text(
-                                                    'Fabricante',
+                                                    columnCompaniesRecord.name!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText2
+                                                        .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Akzidenz Grotesk Pro',
-                                                          color:
-                                                              Color(0xFF858585),
+                                                          color: Colors.black,
                                                           useGoogleFonts: false,
                                                           lineHeight: 1.9,
                                                         ),
                                                   ),
-                                                Text(
-                                                  columnCompaniesRecord.name!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.black,
-                                                        useGoogleFonts: false,
-                                                        lineHeight: 1.9,
-                                                      ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: Image.asset(
+                                          'assets/images/Rectangle_169_(2).png',
+                                        ).image,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16, 16, 16, 16),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TariffsWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              text:
+                                                  'Ver precios de productores del norte',
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 35,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
                                                 ),
-                                              ],
+                                                borderRadius:
+                                                    BorderRadius.circular(35),
+                                              ),
                                             ),
                                           ),
                                         ],
                                       ),
-                                    );
-                                  }),
-                                );
-                              },
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: Image.asset(
-                                        'assets/images/Rectangle_169_(2).png',
-                                      ).image,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 16, 16, 16),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TariffsWidget(),
-                                                ),
-                                              );
-                                            },
-                                            text:
-                                                'Ver precios de productores del norte',
-                                            options: FFButtonOptions(
-                                              width: 130,
-                                              height: 35,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.white,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(35),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -3488,162 +3495,169 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                             ],
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            StreamBuilder<List<CompaniesRecord>>(
-                              stream: queryCompaniesRecord(
-                                queryBuilder: (companiesRecord) =>
-                                    companiesRecord
-                                        .where('Area', isEqualTo: 'Centre')
-                                        .orderBy('DateForSorting'),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50,
-                                      height: 50,
-                                      child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              StreamBuilder<List<CompaniesRecord>>(
+                                stream: queryCompaniesRecord(
+                                  queryBuilder: (companiesRecord) =>
+                                      companiesRecord
+                                          .where('Area', isEqualTo: 'Centre')
+                                          .orderBy('DateForSorting'),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 50,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<CompaniesRecord>
-                                    columnCompaniesRecordList = snapshot.data!;
-                                return Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: List.generate(
-                                      columnCompaniesRecordList.length,
-                                      (columnIndex) {
-                                    final columnCompaniesRecord =
-                                        columnCompaniesRecordList[columnIndex];
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                if (columnIndex == 0)
+                                    );
+                                  }
+                                  List<CompaniesRecord>
+                                      columnCompaniesRecordList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnCompaniesRecordList.length,
+                                        (columnIndex) {
+                                      final columnCompaniesRecord =
+                                          columnCompaniesRecordList[
+                                              columnIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16, 0, 16, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 80,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  if (columnIndex == 0)
+                                                    Text(
+                                                      'Fabricante',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Akzidenz Grotesk Pro',
+                                                                color: Color(
+                                                                    0xFF858585),
+                                                                useGoogleFonts:
+                                                                    false,
+                                                                lineHeight: 1.9,
+                                                              ),
+                                                    ),
                                                   Text(
-                                                    'Fabricante',
+                                                    columnCompaniesRecord.name!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText2
+                                                        .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Akzidenz Grotesk Pro',
-                                                          color:
-                                                              Color(0xFF858585),
+                                                          color: Colors.black,
                                                           useGoogleFonts: false,
                                                           lineHeight: 1.9,
                                                         ),
                                                   ),
-                                                Text(
-                                                  columnCompaniesRecord.name!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.black,
-                                                        useGoogleFonts: false,
-                                                        lineHeight: 1.9,
-                                                      ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: Image.asset(
+                                          'assets/images/Rectangle_169_(2).png',
+                                        ).image,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16, 16, 16, 16),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TariffsWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              text:
+                                                  'Ver precios de productores del centro',
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 35,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
                                                 ),
-                                              ],
+                                                borderRadius:
+                                                    BorderRadius.circular(35),
+                                              ),
                                             ),
                                           ),
                                         ],
                                       ),
-                                    );
-                                  }),
-                                );
-                              },
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: Image.asset(
-                                        'assets/images/Rectangle_169_(2).png',
-                                      ).image,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 16, 16, 16),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TariffsWidget(),
-                                                ),
-                                              );
-                                            },
-                                            text:
-                                                'Ver precios de productores del centro',
-                                            options: FFButtonOptions(
-                                              width: 130,
-                                              height: 35,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.white,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(35),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -3765,162 +3779,169 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                             ],
                           ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            StreamBuilder<List<CompaniesRecord>>(
-                              stream: queryCompaniesRecord(
-                                queryBuilder: (companiesRecord) =>
-                                    companiesRecord
-                                        .where('Area', isEqualTo: 'Sur')
-                                        .orderBy('DateForSorting'),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50,
-                                      height: 50,
-                                      child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                        IntrinsicHeight(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              StreamBuilder<List<CompaniesRecord>>(
+                                stream: queryCompaniesRecord(
+                                  queryBuilder: (companiesRecord) =>
+                                      companiesRecord
+                                          .where('Area', isEqualTo: 'Sur')
+                                          .orderBy('DateForSorting'),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 50,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<CompaniesRecord>
-                                    columnCompaniesRecordList = snapshot.data!;
-                                return Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: List.generate(
-                                      columnCompaniesRecordList.length,
-                                      (columnIndex) {
-                                    final columnCompaniesRecord =
-                                        columnCompaniesRecordList[columnIndex];
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            width: 80,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                if (columnIndex == 0)
+                                    );
+                                  }
+                                  List<CompaniesRecord>
+                                      columnCompaniesRecordList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnCompaniesRecordList.length,
+                                        (columnIndex) {
+                                      final columnCompaniesRecord =
+                                          columnCompaniesRecordList[
+                                              columnIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16, 0, 16, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              width: 80,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  if (columnIndex == 0)
+                                                    Text(
+                                                      'Fabricante',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Akzidenz Grotesk Pro',
+                                                                color: Color(
+                                                                    0xFF858585),
+                                                                useGoogleFonts:
+                                                                    false,
+                                                                lineHeight: 1.9,
+                                                              ),
+                                                    ),
                                                   Text(
-                                                    'Fabricante',
+                                                    columnCompaniesRecord.name!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText2
+                                                        .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Akzidenz Grotesk Pro',
-                                                          color:
-                                                              Color(0xFF858585),
+                                                          color: Colors.black,
                                                           useGoogleFonts: false,
                                                           lineHeight: 1.9,
                                                         ),
                                                   ),
-                                                Text(
-                                                  columnCompaniesRecord.name!,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.black,
-                                                        useGoogleFonts: false,
-                                                        lineHeight: 1.9,
-                                                      ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: Image.asset(
+                                          'assets/images/Rectangle_169_(2).png',
+                                        ).image,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16, 16, 16, 16),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        TariffsWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              text:
+                                                  'Ver precios de productores del sur',
+                                              options: FFButtonOptions(
+                                                width: 130,
+                                                height: 35,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
                                                 ),
-                                              ],
+                                                borderRadius:
+                                                    BorderRadius.circular(35),
+                                              ),
                                             ),
                                           ),
                                         ],
                                       ),
-                                    );
-                                  }),
-                                );
-                              },
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: Image.asset(
-                                        'assets/images/Rectangle_169_(2).png',
-                                      ).image,
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16, 16, 16, 16),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              await Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      TariffsWidget(),
-                                                ),
-                                              );
-                                            },
-                                            text:
-                                                'Ver precios de productores del sur',
-                                            options: FFButtonOptions(
-                                              width: 130,
-                                              height: 35,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily:
-                                                            'Akzidenz Grotesk Pro',
-                                                        color: Colors.white,
-                                                        useGoogleFonts: false,
-                                                      ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(35),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
