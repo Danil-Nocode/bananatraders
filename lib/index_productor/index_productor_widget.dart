@@ -3309,65 +3309,62 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                 },
                               ),
                               Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: Image.asset(
-                                          'assets/images/Rectangle_169_(2).png',
-                                        ).image,
-                                      ),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: Image.asset(
+                                        'assets/images/Rectangle_169_(2).png',
+                                      ).image,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 16, 16, 16),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TariffsWidget(),
-                                                  ),
-                                                );
-                                              },
-                                              text:
-                                                  'Ver precios de productores del norte',
-                                              options: FFButtonOptions(
-                                                width: 130,
-                                                height: 35,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2
-                                                        .override(
-                                                          fontFamily:
-                                                              'Akzidenz Grotesk Pro',
-                                                          color: Colors.white,
-                                                          useGoogleFonts: false,
-                                                        ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 16, 16, 16),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TariffsWidget(),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
+                                              );
+                                            },
+                                            text:
+                                                'Ver precios de productores del norte',
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2
+                                                      .override(
+                                                        fontFamily:
+                                                            'Akzidenz Grotesk Pro',
+                                                        color: Colors.white,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
                                               ),
+                                              borderRadius:
+                                                  BorderRadius.circular(35),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -3593,65 +3590,62 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                 },
                               ),
                               Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: Image.asset(
-                                          'assets/images/Rectangle_169_(2).png',
-                                        ).image,
-                                      ),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: Image.asset(
+                                        'assets/images/Rectangle_169_(2).png',
+                                      ).image,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 16, 16, 16),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TariffsWidget(),
-                                                  ),
-                                                );
-                                              },
-                                              text:
-                                                  'Ver precios de productores del centro',
-                                              options: FFButtonOptions(
-                                                width: 130,
-                                                height: 35,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2
-                                                        .override(
-                                                          fontFamily:
-                                                              'Akzidenz Grotesk Pro',
-                                                          color: Colors.white,
-                                                          useGoogleFonts: false,
-                                                        ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 16, 16, 16),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TariffsWidget(),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
+                                              );
+                                            },
+                                            text:
+                                                'Ver precios de productores del centro',
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2
+                                                      .override(
+                                                        fontFamily:
+                                                            'Akzidenz Grotesk Pro',
+                                                        color: Colors.white,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
                                               ),
+                                              borderRadius:
+                                                  BorderRadius.circular(35),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -3877,65 +3871,62 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                 },
                               ),
                               Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: Image.asset(
-                                          'assets/images/Rectangle_169_(2).png',
-                                        ).image,
-                                      ),
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: Image.asset(
+                                        'assets/images/Rectangle_169_(2).png',
+                                      ).image,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 16, 16, 16),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TariffsWidget(),
-                                                  ),
-                                                );
-                                              },
-                                              text:
-                                                  'Ver precios de productores del sur',
-                                              options: FFButtonOptions(
-                                                width: 130,
-                                                height: 35,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .subtitle2
-                                                        .override(
-                                                          fontFamily:
-                                                              'Akzidenz Grotesk Pro',
-                                                          color: Colors.white,
-                                                          useGoogleFonts: false,
-                                                        ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1,
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 16, 16, 16),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TariffsWidget(),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
+                                              );
+                                            },
+                                            text:
+                                                'Ver precios de productores del sur',
+                                            options: FFButtonOptions(
+                                              width: 130,
+                                              height: 35,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle2
+                                                      .override(
+                                                        fontFamily:
+                                                            'Akzidenz Grotesk Pro',
+                                                        color: Colors.white,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1,
                                               ),
+                                              borderRadius:
+                                                  BorderRadius.circular(35),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),

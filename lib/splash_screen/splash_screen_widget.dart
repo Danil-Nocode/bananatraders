@@ -29,12 +29,16 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault(currentUserDocument?.tariff, '') != 'GRATUITO') {
-        if (getCurrentTimestamp >
-            functions.addDay(currentUserDocument!.dueDate)!) {
-          final usersUpdateData = createUsersRecordData(
-            tariff: 'GRATUITO',
-          );
-          await currentUserReference!.update(usersUpdateData);
+        try {
+          if (getCurrentTimestamp >
+              functions.addDay(currentUserDocument!.dueDate)!) {
+            final usersUpdateData = createUsersRecordData(
+              tariff: 'GRATUITO',
+            );
+            await currentUserReference!.update(usersUpdateData);
+          }
+        } catch (e) {
+          print('ошибка' + e.toString());
         }
       }
       if (valueOrDefault(currentUserDocument?.tariff, '') == 'GRATUITO') {
@@ -87,20 +91,18 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 1,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  'assets/images/Frame_1_(4).png',
-                ).image,
-              ),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 1,
+          decoration: BoxDecoration(
+            color: FlutterFlowTheme.of(context).secondaryBackground,
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                'assets/images/Frame_1_(4).png',
+              ).image,
             ),
           ),
         ),
