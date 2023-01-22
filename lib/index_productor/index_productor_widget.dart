@@ -692,7 +692,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
-                                                          'assets/images/Rectangle_169.png',
+                                                          'assets/images/graph_bg.png',
                                                         ).image,
                                                       ),
                                                     ),
@@ -1060,61 +1060,51 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 5),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                              .update(() {
-                                                            FFAppState().spot =
-                                                                '1 mes';
-                                                          });
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            if (FFAppState()
-                                                                    .spot !=
-                                                                '1 mes')
-                                                              InkWell(
-                                                                onTap:
-                                                                    () async {
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          if (FFAppState()
+                                                                  .spot !=
+                                                              '1 mes')
+                                                            InkWell(
+                                                              onTap: () async {
+                                                                FFAppState()
+                                                                    .update(() {
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .spot =
-                                                                        '1 mes';
-                                                                  });
-                                                                },
-                                                                child: Text(
-                                                                  '1 mes',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            if (FFAppState()
-                                                                    .spot ==
-                                                                '1 mes')
-                                                              Text(
+                                                                          .spot =
+                                                                      '1 mes';
+                                                                });
+                                                              },
+                                                              child: Text(
                                                                 '1 mes',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Akzidenz Grotesk Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryColor,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
                                                               ),
-                                                          ],
-                                                        ),
+                                                            ),
+                                                          if (FFAppState()
+                                                                  .spot ==
+                                                              '1 mes')
+                                                            Text(
+                                                              '1 mes',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1,
+                                                            ),
+                                                        ],
                                                       ),
                                                     ),
                                                     if (FFAppState().spot ==
@@ -1347,7 +1337,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
-                                                          'assets/images/Rectangle_169.png',
+                                                          'assets/images/graph_bg.png',
                                                         ).image,
                                                       ),
                                                     ),
@@ -1719,61 +1709,51 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 5),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                              .update(() {
-                                                            FFAppState().spot =
-                                                                '1 mes';
-                                                          });
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            if (FFAppState()
-                                                                    .spotNorte !=
-                                                                '1 mes')
-                                                              InkWell(
-                                                                onTap:
-                                                                    () async {
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          if (FFAppState()
+                                                                  .spotNorte !=
+                                                              '1 mes')
+                                                            InkWell(
+                                                              onTap: () async {
+                                                                FFAppState()
+                                                                    .update(() {
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .spotNorte =
-                                                                        '1 mes';
-                                                                  });
-                                                                },
-                                                                child: Text(
-                                                                  '1 mes',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            if (FFAppState()
-                                                                    .spotNorte ==
-                                                                '1 mes')
-                                                              Text(
+                                                                          .spotNorte =
+                                                                      '1 mes';
+                                                                });
+                                                              },
+                                                              child: Text(
                                                                 '1 mes',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Akzidenz Grotesk Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryColor,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
                                                               ),
-                                                          ],
-                                                        ),
+                                                            ),
+                                                          if (FFAppState()
+                                                                  .spotNorte ==
+                                                              '1 mes')
+                                                            Text(
+                                                              '1 mes',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1,
+                                                            ),
+                                                        ],
                                                       ),
                                                     ),
                                                     if (FFAppState()
@@ -2010,7 +1990,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
-                                                          'assets/images/Rectangle_169.png',
+                                                          'assets/images/graph_bg.png',
                                                         ).image,
                                                       ),
                                                     ),
@@ -2382,61 +2362,51 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 5),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                              .update(() {
-                                                            FFAppState().spot =
-                                                                '1 mes';
-                                                          });
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            if (FFAppState()
-                                                                    .spotCentro !=
-                                                                '1 mes')
-                                                              InkWell(
-                                                                onTap:
-                                                                    () async {
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          if (FFAppState()
+                                                                  .spotCentro !=
+                                                              '1 mes')
+                                                            InkWell(
+                                                              onTap: () async {
+                                                                FFAppState()
+                                                                    .update(() {
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .spotCentro =
-                                                                        '1 mes';
-                                                                  });
-                                                                },
-                                                                child: Text(
-                                                                  '1 mes',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            if (FFAppState()
-                                                                    .spotCentro ==
-                                                                '1 mes')
-                                                              Text(
+                                                                          .spotCentro =
+                                                                      '1 mes';
+                                                                });
+                                                              },
+                                                              child: Text(
                                                                 '1 mes',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Akzidenz Grotesk Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryColor,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
                                                               ),
-                                                          ],
-                                                        ),
+                                                            ),
+                                                          if (FFAppState()
+                                                                  .spotCentro ==
+                                                              '1 mes')
+                                                            Text(
+                                                              '1 mes',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1,
+                                                            ),
+                                                        ],
                                                       ),
                                                     ),
                                                     if (FFAppState()
@@ -2671,7 +2641,7 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
-                                                          'assets/images/Rectangle_169.png',
+                                                          'assets/images/graph_bg.png',
                                                         ).image,
                                                       ),
                                                     ),
@@ -3039,61 +3009,51 @@ class _IndexProductorWidgetState extends State<IndexProductorWidget> {
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0, 0, 0, 5),
-                                                      child: InkWell(
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                              .update(() {
-                                                            FFAppState().spot =
-                                                                '1 mes';
-                                                          });
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            if (FFAppState()
-                                                                    .spotSur !=
-                                                                '1 mes')
-                                                              InkWell(
-                                                                onTap:
-                                                                    () async {
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          if (FFAppState()
+                                                                  .spotSur !=
+                                                              '1 mes')
+                                                            InkWell(
+                                                              onTap: () async {
+                                                                FFAppState()
+                                                                    .update(() {
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .spotSur =
-                                                                        '1 mes';
-                                                                  });
-                                                                },
-                                                                child: Text(
-                                                                  '1 mes',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Akzidenz Grotesk Pro',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryColor,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            if (FFAppState()
-                                                                    .spotSur ==
-                                                                '1 mes')
-                                                              Text(
+                                                                          .spotSur =
+                                                                      '1 mes';
+                                                                });
+                                                              },
+                                                              child: Text(
                                                                 '1 mes',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1,
+                                                                    .bodyText1
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Akzidenz Grotesk Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryColor,
+                                                                      useGoogleFonts:
+                                                                          false,
+                                                                    ),
                                                               ),
-                                                          ],
-                                                        ),
+                                                            ),
+                                                          if (FFAppState()
+                                                                  .spotSur ==
+                                                              '1 mes')
+                                                            Text(
+                                                              '1 mes',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1,
+                                                            ),
+                                                        ],
                                                       ),
                                                     ),
                                                     if (FFAppState().spotSur ==
