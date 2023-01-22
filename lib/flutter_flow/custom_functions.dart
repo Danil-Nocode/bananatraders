@@ -27,3 +27,36 @@ int? functionOfComparison(List<AreasDaysRecord>? listValues) {
     return 1; // equal
   }
 }
+
+DateTime? addDay(DateTime? currentTime) {
+  var newDate = currentTime!.add(Duration(days: 1));
+  return newDate;
+}
+
+int weekByDates(DateTime dateCurrent) {
+  // Current date and time of system
+  String date = dateCurrent.toString();
+
+// This will generate the time and date for first day of month
+  String firstDay = date.substring(0, 8) + '01' + date.substring(10);
+
+// week day for the first day of the month
+  int weekDay = DateTime.parse(firstDay).weekday;
+
+  DateTime testDate = DateTime.now();
+
+  int weekOfMonth;
+
+// //  If your calender starts from Monday
+//   weekDay--;
+//   weekOfMonth = ((testDate.day + weekDay) / 7).ceil();
+//   print('Week of the month: $weekOfMonth');
+//   weekDay++;
+
+// If your calender starts from sunday
+  if (weekDay == 7) {
+    weekDay = 0;
+  }
+  weekOfMonth = ((testDate.day + weekDay) / 7).ceil();
+  return weekOfMonth;
+}

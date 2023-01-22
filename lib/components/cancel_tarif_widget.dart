@@ -81,15 +81,17 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                            child: Text(
-                              'En caso de cancelar su plan actual a partir del (день) el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText2
-                                  .override(
-                                    fontFamily: 'Akzidenz Grotesk Pro',
-                                    fontSize: 18,
-                                    useGoogleFonts: false,
-                                  ),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                'En caso de cancelar su plan actual a partir del ${currentUserDocument!.dueDate?.toString()} el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText2
+                                    .override(
+                                      fontFamily: 'Akzidenz Grotesk Pro',
+                                      fontSize: 18,
+                                      useGoogleFonts: false,
+                                    ),
+                              ),
                             ),
                           ),
                         ),

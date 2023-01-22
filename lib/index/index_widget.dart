@@ -4,7 +4,6 @@ import '../components/func_not_ready_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../index_productor_copy/index_productor_copy_widget.dart';
 import '../support/support_widget.dart';
 import '../tariffs/tariffs_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
@@ -64,26 +63,15 @@ class _IndexWidgetState extends State<IndexWidget> {
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                InkWell(
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            IndexProductorCopyWidget(),
+                                Text(
+                                  'OFICIAL: ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Akzidenz Grotesk Pro',
+                                        color: Colors.white,
+                                        useGoogleFonts: false,
                                       ),
-                                    );
-                                  },
-                                  child: Text(
-                                    'OFICIAL: ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily: 'Akzidenz Grotesk Pro',
-                                          color: Colors.white,
-                                          useGoogleFonts: false,
-                                        ),
-                                  ),
                                 ),
                                 Text(
                                   '\$',

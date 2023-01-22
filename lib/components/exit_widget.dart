@@ -58,7 +58,7 @@ class _ExitWidgetState extends State<ExitWidget> {
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
-                              '¿Retire de sesión?',
+                              '¿Cerrar la sesión?',
                               textAlign: TextAlign.center,
                               style:
                                   FlutterFlowTheme.of(context).title2.override(

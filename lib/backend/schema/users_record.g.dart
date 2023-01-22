@@ -68,6 +68,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.dueDate;
+    if (value != null) {
+      result
+        ..add('dueDate')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -118,6 +125,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.tariff = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'dueDate':
+          result.dueDate = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -147,6 +158,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? tariff;
   @override
+  final DateTime? dueDate;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -160,6 +173,7 @@ class _$UsersRecord extends UsersRecord {
       this.createdTime,
       this.phoneNumber,
       this.tariff,
+      this.dueDate,
       this.ffRef})
       : super._();
 
@@ -181,6 +195,7 @@ class _$UsersRecord extends UsersRecord {
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
         tariff == other.tariff &&
+        dueDate == other.dueDate &&
         ffRef == other.ffRef;
   }
 
@@ -191,12 +206,16 @@ class _$UsersRecord extends UsersRecord {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, email.hashCode), displayName.hashCode),
-                            photoUrl.hashCode),
-                        uid.hashCode),
-                    createdTime.hashCode),
-                phoneNumber.hashCode),
-            tariff.hashCode),
+                        $jc(
+                            $jc(
+                                $jc($jc(0, email.hashCode),
+                                    displayName.hashCode),
+                                photoUrl.hashCode),
+                            uid.hashCode),
+                        createdTime.hashCode),
+                    phoneNumber.hashCode),
+                tariff.hashCode),
+            dueDate.hashCode),
         ffRef.hashCode));
   }
 
@@ -210,6 +229,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
           ..add('tariff', tariff)
+          ..add('dueDate', dueDate)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -246,6 +266,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get tariff => _$this._tariff;
   set tariff(String? tariff) => _$this._tariff = tariff;
 
+  DateTime? _dueDate;
+  DateTime? get dueDate => _$this._dueDate;
+  set dueDate(DateTime? dueDate) => _$this._dueDate = dueDate;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -264,6 +288,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
       _tariff = $v.tariff;
+      _dueDate = $v.dueDate;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -294,6 +319,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             createdTime: createdTime,
             phoneNumber: phoneNumber,
             tariff: tariff,
+            dueDate: dueDate,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
