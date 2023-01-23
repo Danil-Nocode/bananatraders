@@ -25,6 +25,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   late bool passwordVisibility;
   TextEditingController? passwordConfirmController;
   late bool passwordConfirmVisibility;
+  bool? checkboxValue;
   TextEditingController? emailAddressLoginController;
   TextEditingController? passwordLoginController;
   late bool passwordLoginVisibility;
@@ -685,48 +686,124 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 16, 0, 0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Theme(
+                                              data: ThemeData(
+                                                checkboxTheme:
+                                                    CheckboxThemeData(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            0),
+                                                  ),
+                                                ),
+                                                unselectedWidgetColor:
+                                                    Color(0xFFF5F5F5),
+                                              ),
+                                              child: Checkbox(
+                                                value: checkboxValue ??= true,
+                                                onChanged: (newValue) async {
+                                                  setState(() => checkboxValue =
+                                                      newValue!);
+                                                },
+                                                activeColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  await launchURL(
+                                                      'https://iflex.ru/documents/goshoping/PrivacyPolicy.html');
+                                                },
+                                                child: Text(
+                                                  'Acepto la política de privacidad y el acuerdo de usuario',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily:
+                                                            'Akzidenz Grotesk Pro',
+                                                        color: Colors.white,
+                                                        useGoogleFonts: false,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 24, 0, 0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            if (passwordController?.text !=
-                                                passwordConfirmController
-                                                    ?.text) {
+                                            if (checkboxValue!) {
+                                              if (passwordController?.text !=
+                                                  passwordConfirmController
+                                                      ?.text) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Passwords don\'t match!',
+                                                    ),
+                                                  ),
+                                                );
+                                                return;
+                                              }
+
+                                              final user =
+                                                  await createAccountWithEmail(
+                                                context,
+                                                emailAddressController!.text,
+                                                passwordController!.text,
+                                              );
+                                              if (user == null) {
+                                                return;
+                                              }
+
+                                              final usersCreateData =
+                                                  createUsersRecordData(
+                                                tariff: 'GRATUITO',
+                                              );
+                                              await UsersRecord.collection
+                                                  .doc(user.uid)
+                                                  .update(usersCreateData);
+
+                                              await Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      IndexWidget(),
+                                                ),
+                                              );
+                                            } else {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    'Passwords don\'t match!',
+                                                    'Acepte la política de privacidad y el acuerdo de usuario',
+                                                    style: TextStyle(
+                                                      color: Colors.white,
+                                                    ),
                                                   ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryColor,
                                                 ),
                                               );
-                                              return;
                                             }
-
-                                            final user =
-                                                await createAccountWithEmail(
-                                              context,
-                                              emailAddressController!.text,
-                                              passwordController!.text,
-                                            );
-                                            if (user == null) {
-                                              return;
-                                            }
-
-                                            final usersCreateData =
-                                                createUsersRecordData(
-                                              tariff: 'GRATUITO',
-                                            );
-                                            await UsersRecord.collection
-                                                .doc(user.uid)
-                                                .update(usersCreateData);
-
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    IndexWidget(),
-                                              ),
-                                            );
                                           },
                                           text: 'Crea una cuenta',
                                           options: FFButtonOptions(

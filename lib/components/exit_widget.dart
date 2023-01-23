@@ -74,7 +74,7 @@ class _ExitWidgetState extends State<ExitWidget> {
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 32),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -133,6 +133,52 @@ class _ExitWidgetState extends State<ExitWidget> {
                                 color: Colors.transparent,
                                 width: 1,
                               ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 44),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: () async {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Su solicitud ha sido aceptada y pronto su cuenta será eliminada',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                ),
+                              );
+                              await signOut();
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                            child: Text(
+                              '¿Quieres eliminar tu cuenta?',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Akzidenz Grotesk Pro',
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts: false,
+                                  ),
                             ),
                           ),
                         ],
