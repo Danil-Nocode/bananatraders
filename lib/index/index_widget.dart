@@ -287,7 +287,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                             .arrow_upward_outlined,
                                                         color:
                                                             Color(0xFF4499E8),
-                                                        size: 22,
+                                                        size: 30,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -299,7 +299,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                         Icons.arrow_downward,
                                                         color:
                                                             Color(0xFFFF0000),
-                                                        size: 22,
+                                                        size: 30,
                                                       ),
                                                     if (functions
                                                             .functionOfComparison(
@@ -313,7 +313,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryColor,
-                                                        size: 22,
+                                                        size: 30,
                                                       ),
                                                   ],
                                                 ),
@@ -543,7 +543,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                 .title3,
                                           ),
                                           Text(
-                                            'Promedio semanal: \$${containerOneAreasDaysRecord!.avg?.toString()}',
+                                            'Precio actual: \$${containerOneAreasDaysRecord!.avg?.toString()}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -1062,7 +1062,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                 .title3,
                                           ),
                                           Text(
-                                            'Promedio semanal: \$${containerOneAreasDaysRecord!.spotNorte?.toString()}',
+                                            'Precio actual: \$${containerOneAreasDaysRecord!.spotNorte?.toString()}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -1585,7 +1585,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                 .title3,
                                           ),
                                           Text(
-                                            'Promedio semanal: \$${containerOneAreasDaysRecord!.spotCentre?.toString()}',
+                                            'Precio actual: \$${containerOneAreasDaysRecord!.spotCentre?.toString()}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -2117,7 +2117,7 @@ class _IndexWidgetState extends State<IndexWidget> {
                                                 .title3,
                                           ),
                                           Text(
-                                            'Promedio semanal: \$${containerOneAreasDaysRecord!.spotSur?.toString()}',
+                                            'Precio actual: \$${containerOneAreasDaysRecord!.spotSur?.toString()}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(

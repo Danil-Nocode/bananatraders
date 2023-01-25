@@ -253,8 +253,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                     path: 'bananasmarket.ec@gmail.com',
                                     query: {
                                       'subject': 'For support',
-                                      'body':
-                                          '${supportEmailFromController!.text}${supportTextController!.text}',
+                                      'body': supportEmailFromController!.text,
                                     }
                                         .entries
                                         .map((MapEntry<String, String> e) =>

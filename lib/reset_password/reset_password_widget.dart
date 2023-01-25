@@ -198,7 +198,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'Email required!',
+                                                '¡Se requere su correo electronico!',
                                               ),
                                             ),
                                           );

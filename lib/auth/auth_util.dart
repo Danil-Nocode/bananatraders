@@ -32,7 +32,9 @@ Future<User?> signInOrCreateAccount(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text(
+              'Correo electrónico o contraseña ingresados incorrectamente')),
     );
     return null;
   }
@@ -55,7 +57,7 @@ Future deleteUser(BuildContext context) async {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             content: Text(
-                'Too long since most recent sign in. Sign in again before deleting your account.')),
+                'Ha pasado demasiado tiempo desde el último inicio de sesión. Vuelva a iniciar sesión antes de eliminar su cuenta.')),
       );
     }
   }
@@ -68,12 +70,16 @@ Future resetPassword(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text(
+              'Correo electrónico o contraseña ingresados incorrectamente')),
     );
     return null;
   }
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Password reset email sent')),
+    SnackBar(
+        content: Text(
+            ' Mensaje de restablecimiento de contraseña enviado a su correo electrónico!')),
   );
 }
 
@@ -153,7 +159,8 @@ Future beginPhoneAuth({
     verificationFailed: (e) {
       completer.complete(false);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Error: ${e.message!}'),
+        content:
+            Text('Correo electrónico o contraseña ingresados incorrectamente'),
       ));
     },
     codeSent: (verificationId, _) {

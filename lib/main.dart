@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
       ],
       locale: _locale,
       supportedLocales: const [
-        Locale('en'),
+        Locale('es'),
       ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
