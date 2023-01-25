@@ -136,28 +136,63 @@ class _ChartCustomState extends State<ChartCustom> {
     );
   }
 
-  Widget leftTitleWidgets(double value, TitleMeta meta) {
+  Widget leftTitleWidgets(
+    double value,
+    TitleMeta meta,
+  ) {
     const style = TextStyle(
       color: Color(0xff67727d),
       fontWeight: FontWeight.bold,
       fontSize: 15,
     );
     String text;
+
+    var maxY =
+        getDataMinMax(widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
+                .reduce(max) +
+            1;
+
+    // if (value.toInt() == maxY - 2) {
+    //   text = '${maxY - 2}\$';
+    // } else if (value.toInt() == maxY) {
+    //   text = '$maxY\$';
+    // } else if (value.toInt() == maxY - 5) {
+    //   text = '${maxY - 5}\$';
+    // } else {
+    //   return Container();
+    // }
+
     switch (value.toInt()) {
-      case 1:
-        text = '1\$';
-        break;
       case 3:
         text = '3\$';
         break;
       case 5:
         text = '5\$';
         break;
+      case 7:
+        text = '7\$';
+        break;
       default:
         return Container();
     }
 
     return Text(text, style: style, textAlign: TextAlign.left);
+  }
+
+  double maxY(List<double> valueDays, List<double> valueWeeks, String period) {
+    if (period == '1 sem' || period == '1 mes') {
+      return valueDays.reduce(max);
+    } else {
+      return valueWeeks.reduce(max);
+    }
+  }
+
+  double minY(List<double> valueDays, List<double> valueWeeks, String period) {
+    if (period == '1 sem' || period == '1 mes') {
+      return valueDays.reduce(min);
+    } else {
+      return valueWeeks.reduce(min);
+    }
   }
 
   List<FlSpot>? getData(
@@ -205,6 +240,46 @@ class _ChartCustomState extends State<ChartCustom> {
     }
 
     return data;
+  }
+
+  List<double>? getDataMinMax(
+      String periodStr, List<double> valuesDays, List<double> valuesWeeks) {
+    List<double> values = [];
+    int period = 7;
+    if (periodStr == '1 sem') {
+      period = 7;
+    } else if (periodStr == '1 mes') {
+      period = 30;
+    } else if (periodStr == '3 mes') {
+      period = 90;
+    } else if (periodStr == '6 mes') {
+      period = 180;
+    } else if (periodStr == '1 año') {
+      period = 360;
+    } else {
+      period = 620;
+    }
+    if (period > 90) {
+      period = period ~/ 7;
+      values = valuesWeeks;
+    } else {
+      values = valuesDays;
+    }
+    List<double> newValues = [];
+    int maxLenght = values.length;
+    if (period > maxLenght) {
+      period = maxLenght;
+      if (period > 90) {
+        period = period ~/ 7;
+      }
+    }
+
+    // Iterable<double> inReverse = values.reversed;
+    // var valuesInReverse = inReverse.toList();
+    newValues = values.sublist(0, period);
+    newValues = newValues.reversed.toList();
+
+    return newValues;
   }
 
   LineChartData mainData() {
@@ -336,8 +411,14 @@ class _ChartCustomState extends State<ChartCustom> {
               .length
               .toDouble() -
           1,
-      minY: 0,
-      maxY: 6,
+      minY: getDataMinMax(
+                  widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
+              .reduce(min) -
+          2,
+      maxY: getDataMinMax(
+                  widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
+              .reduce(max) +
+          2,
       lineBarsData: [
         LineChartBarData(
           spots:

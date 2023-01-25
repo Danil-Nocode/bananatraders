@@ -3063,14 +3063,14 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                         columnCompaniesRecordList[columnIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
+                                          16, 0, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
                                           Container(
-                                            width: 80,
+                                            width: 120,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -3107,6 +3107,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                         color: Colors.black,
                                                         useGoogleFonts: false,
                                                         lineHeight: 1.9,
+                                                        fontSize: 9,
                                                       ),
                                                 ),
                                               ],
@@ -4021,14 +4022,14 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                         columnCompaniesRecordList[columnIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
+                                          16, 0, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
                                           Container(
-                                            width: 80,
+                                            width: 120,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -4065,6 +4066,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                         color: Colors.black,
                                                         useGoogleFonts: false,
                                                         lineHeight: 1.9,
+                                                        fontSize: 9,
                                                       ),
                                                 ),
                                               ],
@@ -4978,14 +4980,14 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                         columnCompaniesRecordList[columnIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 16, 0),
+                                          16, 0, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
                                           Container(
-                                            width: 80,
+                                            width: 120,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -5022,6 +5024,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                         color: Colors.black,
                                                         useGoogleFonts: false,
                                                         lineHeight: 1.9,
+                                                        fontSize: 9,
                                                       ),
                                                 ),
                                               ],
