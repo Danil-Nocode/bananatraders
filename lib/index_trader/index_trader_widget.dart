@@ -345,7 +345,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                   .arrow_upward_outlined,
                                                               color: Color(
                                                                   0xFF4499E8),
-                                                              size: 22,
+                                                              size: 30,
                                                             ),
                                                           if (functions
                                                                   .functionOfComparison(
@@ -358,7 +358,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                   .arrow_downward,
                                                               color: Color(
                                                                   0xFFFF0000),
-                                                              size: 22,
+                                                              size: 30,
                                                             ),
                                                           if (functions
                                                                   .functionOfComparison(
@@ -371,7 +371,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryColor,
-                                                              size: 22,
+                                                              size: 30,
                                                             ),
                                                         ],
                                                       ),
@@ -673,7 +673,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               .title3,
                                                         ),
                                                         Text(
-                                                          'Promedio semanal: \$${containerOneAreasDaysRecord!.avg?.toString()}',
+                                                          'Precio actual: \$${containerOneAreasDaysRecord!.avg?.toString()}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -1254,7 +1254,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               .title3,
                                                         ),
                                                         Text(
-                                                          'Promedio semanal: \$${containerOneAreasDaysRecord!.spotNorte?.toString()}',
+                                                          'Precio actual: \$${containerOneAreasDaysRecord!.spotNorte?.toString()}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -1846,7 +1846,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               .title3,
                                                         ),
                                                         Text(
-                                                          'Promedio semanal: \$${containerOneAreasDaysRecord!.spotCentre?.toString()}',
+                                                          'Precio actual: \$${containerOneAreasDaysRecord!.spotCentre?.toString()}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
@@ -2436,7 +2436,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                               .title3,
                                                         ),
                                                         Text(
-                                                          'Promedio semanal: \$${containerOneAreasDaysRecord!.spotSur?.toString()}',
+                                                          'Precio actual: \$${containerOneAreasDaysRecord!.spotSur?.toString()}',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyText1
