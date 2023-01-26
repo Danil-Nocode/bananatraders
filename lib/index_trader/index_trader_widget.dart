@@ -3070,7 +3070,10 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                             MainAxisAlignment.start,
                                         children: [
                                           Container(
-                                            width: 80,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.3,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
