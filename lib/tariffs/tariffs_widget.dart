@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../index/index_widget.dart';
 import '../index_productor/index_productor_widget.dart';
 import '../index_trader/index_trader_widget.dart';
+import '../flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,8 @@ class TariffsWidget extends StatefulWidget {
 }
 
 class _TariffsWidgetState extends State<TariffsWidget> {
+  bool? action;
+  bool? actionSub;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -387,21 +390,30 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                         },
                                       ).then((value) => setState(() {}));
                                     } else {
-                                      final usersUpdateData =
-                                          createUsersRecordData(
-                                        tariff: 'PRODUCTOR',
-                                      );
-                                      await currentUserReference!
-                                          .update(usersUpdateData);
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              IndexProductorWidget(),
-                                        ),
-                                      );
+                                      action = await revenue_cat
+                                          .purchasePackage('productor_month');
+                                      if (action!) {
+                                        final usersUpdateData =
+                                            createUsersRecordData(
+                                          tariff: 'PRODUCTOR',
+                                          dueDate: getCurrentTimestamp,
+                                        );
+                                        await currentUserReference!
+                                            .update(usersUpdateData);
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                IndexProductorWidget(),
+                                          ),
+                                        );
+                                      } else {
+                                        Navigator.pop(context);
+                                      }
                                     }
                                   }
+
+                                  setState(() {});
                                 },
                                 text: valueOrDefault(
                                             currentUserDocument?.tariff, '') ==
@@ -597,20 +609,29 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                       },
                                     ).then((value) => setState(() {}));
                                   } else {
-                                    final usersUpdateData =
-                                        createUsersRecordData(
-                                      tariff: 'TRADER',
-                                    );
-                                    await currentUserReference!
-                                        .update(usersUpdateData);
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            IndexTraderWidget(),
-                                      ),
-                                    );
+                                    actionSub = await revenue_cat
+                                        .purchasePackage('productor_month');
+                                    if (actionSub!) {
+                                      final usersUpdateData =
+                                          createUsersRecordData(
+                                        tariff: 'TRADER',
+                                        dueDate: getCurrentTimestamp,
+                                      );
+                                      await currentUserReference!
+                                          .update(usersUpdateData);
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              IndexTraderWidget(),
+                                        ),
+                                      );
+                                    } else {
+                                      Navigator.pop(context);
+                                    }
                                   }
+
+                                  setState(() {});
                                 },
                                 text: valueOrDefault(
                                             currentUserDocument?.tariff, '') ==
