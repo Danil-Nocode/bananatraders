@@ -16,7 +16,7 @@ set purchaserInfo(PurchaserInfo? purchaserInfo) =>
 Future initialize(
   String appStoreKey,
   String playStoreKey, {
-  bool debugLogEnabled = false,
+  bool debugLogEnabled = true,
   bool loadDataAfterLaunch = false,
 }) async {
   if (kIsWeb) {
@@ -57,7 +57,8 @@ Future<bool> purchasePackage(String package) async {
     }
     purchaserInfo = await Purchases.purchasePackage(revenueCatPackage);
     return true;
-  } catch (_) {
+  } catch (e) {
+    print(e);
     return false;
   }
 }

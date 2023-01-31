@@ -392,6 +392,7 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                     } else {
                                       action = await revenue_cat
                                           .purchasePackage('productor_month');
+
                                       if (action!) {
                                         final usersUpdateData =
                                             createUsersRecordData(
