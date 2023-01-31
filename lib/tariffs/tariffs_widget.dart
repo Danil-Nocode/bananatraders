@@ -671,6 +671,37 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                     ),
                   ),
                 ),
+                InkWell(
+                  onTap: () async {
+                    await launchURL('http://enikma-ecuador.com/terms');
+                  },
+                  child: Text(
+                    'Acuerdo de usuario',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).subtitle1.override(
+                          fontFamily: 'Akzidenz Grotesk Pro',
+                          color: Colors.black,
+                          useGoogleFonts: false,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: InkWell(
+                    onTap: () async {
+                      await launchURL('http://enikma-ecuador.com/privacy');
+                    },
+                    child: Text(
+                      'Política de privacidad',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).subtitle1.override(
+                            fontFamily: 'Akzidenz Grotesk Pro',
+                            color: Colors.black,
+                            useGoogleFonts: false,
+                          ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

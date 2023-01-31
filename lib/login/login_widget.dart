@@ -782,7 +782,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   child: InkWell(
                                                     onTap: () async {
                                                       await launchURL(
-                                                          'https://iflex.ru/documents/goshoping/PrivacyPolicy.html');
+                                                          'http://enikma-ecuador.com/privacy');
                                                     },
                                                     child: Text(
                                                       'Acepto la política de privacidad y el acuerdo de usuario',
