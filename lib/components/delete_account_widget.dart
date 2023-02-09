@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../login/login_widget.dart';
 import '../splash_screen/splash_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,7 +116,7 @@ class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Su solicitud ha sido aceptada y pronto su cuenta será eliminada',
+                                        'Su cuenta ha sido eliminada',
                                         style: TextStyle(
                                           color: Colors.white,
                                         ),
@@ -130,8 +131,7 @@ class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
                                   await Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) =>
-                                          SplashScreenWidget(),
+                                      builder: (context) => LoginWidget(),
                                     ),
                                     (r) => false,
                                   );
