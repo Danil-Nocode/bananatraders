@@ -454,6 +454,45 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               ),
                                             ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 16, 0, 20),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            SupportWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    'Soporte técnico',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .subtitle1
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -901,6 +940,45 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               ),
                                             ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 16, 0, 20),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            SupportWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    'Soporte técnico',
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .subtitle1
+                                                        .override(
+                                                          fontFamily:
+                                                              'Akzidenz Grotesk Pro',
+                                                          color: Colors.white,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -912,36 +990,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SupportWidget(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Soporte técnico',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).subtitle1.override(
-                                    fontFamily: 'Akzidenz Grotesk Pro',
-                                    color: Colors.white,
-                                    decoration: TextDecoration.underline,
-                                    useGoogleFonts: false,
-                                  ),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

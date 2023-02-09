@@ -293,11 +293,6 @@ class _SupportWidgetState extends State<SupportWidget> {
                     ),
                   ],
                 ),
-                Container(
-                  width: 100,
-                  height: 250,
-                  decoration: BoxDecoration(),
-                ),
               ],
             ),
           ),
