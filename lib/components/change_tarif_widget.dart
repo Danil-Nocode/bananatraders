@@ -84,7 +84,12 @@ class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Text(
-                                  'En caso de cancelar su plan actual a partir del ${currentUserDocument!.dueDate?.toString()} el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
+                                  'En caso de cancelar su plan actual a partir del ${dateTimeFormat(
+                                    'yMMMd',
+                                    currentUserDocument!.dueDate,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  )} el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText2
                                       .override(

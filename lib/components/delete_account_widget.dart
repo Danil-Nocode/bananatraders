@@ -1,21 +1,20 @@
 import '../auth/auth_util.dart';
-import '../components/delete_account_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login/login_widget.dart';
+import '../splash_screen/splash_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ExitWidget extends StatefulWidget {
-  const ExitWidget({Key? key}) : super(key: key);
+class DeleteAccountWidget extends StatefulWidget {
+  const DeleteAccountWidget({Key? key}) : super(key: key);
 
   @override
-  _ExitWidgetState createState() => _ExitWidgetState();
+  _DeleteAccountWidgetState createState() => _DeleteAccountWidgetState();
 }
 
-class _ExitWidgetState extends State<ExitWidget> {
+class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -64,7 +63,7 @@ class _ExitWidgetState extends State<ExitWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                 child: Text(
-                                  '¿Cerrar la sesión?',
+                                  '¿Quieres eliminar tu cuenta?',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .title2
@@ -113,12 +112,26 @@ class _ExitWidgetState extends State<ExitWidget> {
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  await signOut();
-                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Su solicitud ha sido aceptada y pronto su cuenta será eliminada',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                    ),
+                                  );
+                                  await deleteUser(context);
                                   await Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => LoginWidget(),
+                                      builder: (context) =>
+                                          SplashScreenWidget(),
                                     ),
                                     (r) => false,
                                   );
@@ -142,44 +155,6 @@ class _ExitWidgetState extends State<ExitWidget> {
                                     color: Colors.transparent,
                                     width: 1,
                                   ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 44),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.of(context).viewInsets,
-                                        child: DeleteAccountWidget(),
-                                      );
-                                    },
-                                  ).then((value) => setState(() {}));
-                                },
-                                child: Text(
-                                  '¿Quieres eliminar tu cuenta?',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Akzidenz Grotesk Pro',
-                                        color: Colors.white,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts: false,
-                                      ),
                                 ),
                               ),
                             ],
