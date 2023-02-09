@@ -1,9 +1,7 @@
 import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -83,7 +81,12 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
-                                'En caso de cancelar su plan actual a partir del ${currentUserDocument!.dueDate?.toString()} el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
+                                'En caso de cancelar su plan actual a partir del ${dateTimeFormat(
+                                  'yMMMd',
+                                  currentUserDocument!.dueDate,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                )} el acceso a los datos será limitado ¿Esta seguro de que desea continuar?',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText2
                                     .override(
@@ -129,11 +132,6 @@ class _CancelTarifWidgetState extends State<CancelTarifWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              final usersUpdateData = createUsersRecordData(
-                                tariff: 'GRATUITO',
-                              );
-                              await currentUserReference!
-                                  .update(usersUpdateData);
                               Navigator.pop(context);
                             },
                             text: 'Sí',

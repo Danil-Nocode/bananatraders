@@ -610,7 +610,7 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                     ).then((value) => setState(() {}));
                                   } else {
                                     actionSub = await revenue_cat
-                                        .purchasePackage('productor_month');
+                                        .purchasePackage('trader_month');
                                     if (actionSub!) {
                                       final usersUpdateData =
                                           createUsersRecordData(
