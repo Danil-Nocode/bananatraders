@@ -84,7 +84,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 20),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,

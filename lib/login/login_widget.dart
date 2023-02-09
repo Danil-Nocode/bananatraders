@@ -880,6 +880,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   final usersCreateData =
                                                       createUsersRecordData(
                                                     tariff: 'GRATUITO',
+                                                    dueDate:
+                                                        getCurrentTimestamp,
                                                   );
                                                   await UsersRecord.collection
                                                       .doc(user.uid)
