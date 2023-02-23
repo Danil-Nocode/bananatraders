@@ -10,6 +10,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'index_copy_model.dart';
+export 'index_copy_model.dart';
 
 class IndexCopyWidget extends StatefulWidget {
   const IndexCopyWidget({Key? key}) : super(key: key);
@@ -19,7 +21,22 @@ class IndexCopyWidget extends StatefulWidget {
 }
 
 class _IndexCopyWidgetState extends State<IndexCopyWidget> {
+  late IndexCopyModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => IndexCopyModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

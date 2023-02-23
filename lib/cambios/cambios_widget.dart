@@ -5,6 +5,8 @@ import '../index/index_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'cambios_model.dart';
+export 'cambios_model.dart';
 
 class CambiosWidget extends StatefulWidget {
   const CambiosWidget({Key? key}) : super(key: key);
@@ -14,23 +16,25 @@ class CambiosWidget extends StatefulWidget {
 }
 
 class _CambiosWidgetState extends State<CambiosWidget> {
-  TextEditingController? textController1;
-  TextEditingController? textController2;
-  final _unfocusNode = FocusNode();
+  late CambiosModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
+    _model = createModel(context, () => CambiosModel());
+
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
     super.dispose();
   }
 
@@ -173,7 +177,7 @@ class _CambiosWidgetState extends State<CambiosWidget> {
                                         ),
                                         Expanded(
                                           child: TextFormField(
-                                            controller: textController1,
+                                            controller: _model.textController1,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               enabledBorder:
@@ -237,6 +241,9 @@ class _CambiosWidgetState extends State<CambiosWidget> {
                                                   fontWeight: FontWeight.w500,
                                                   useGoogleFonts: false,
                                                 ),
+                                            validator: _model
+                                                .textController1Validator
+                                                .asValidator(context),
                                           ),
                                         ),
                                       ],
@@ -299,7 +306,7 @@ class _CambiosWidgetState extends State<CambiosWidget> {
                                       ),
                                       Expanded(
                                         child: TextFormField(
-                                          controller: textController2,
+                                          controller: _model.textController2,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             enabledBorder: UnderlineInputBorder(
@@ -357,6 +364,9 @@ class _CambiosWidgetState extends State<CambiosWidget> {
                                                 fontWeight: FontWeight.w500,
                                                 useGoogleFonts: false,
                                               ),
+                                          validator: _model
+                                              .textController2Validator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     ],

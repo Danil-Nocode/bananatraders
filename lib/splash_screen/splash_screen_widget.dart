@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'splash_screen_model.dart';
+export 'splash_screen_model.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({Key? key}) : super(key: key);
@@ -20,12 +22,16 @@ class SplashScreenWidget extends StatefulWidget {
 }
 
 class _SplashScreenWidgetState extends State<SplashScreenWidget> {
-  final _unfocusNode = FocusNode();
+  late SplashScreenModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => SplashScreenModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (valueOrDefault(currentUserDocument?.tariff, '') != 'GRATUITO') {
@@ -76,6 +82,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }

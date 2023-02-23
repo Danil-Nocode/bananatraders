@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'cancel_tarif_model.dart';
+export 'cancel_tarif_model.dart';
 
 class CancelTarifWidget extends StatefulWidget {
   const CancelTarifWidget({Key? key}) : super(key: key);
@@ -14,6 +16,27 @@ class CancelTarifWidget extends StatefulWidget {
 }
 
 class _CancelTarifWidgetState extends State<CancelTarifWidget> {
+  late CancelTarifModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => CancelTarifModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

@@ -7,6 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'change_tarif_model.dart';
+export 'change_tarif_model.dart';
 
 class ChangeTarifWidget extends StatefulWidget {
   const ChangeTarifWidget({Key? key}) : super(key: key);
@@ -16,6 +18,27 @@ class ChangeTarifWidget extends StatefulWidget {
 }
 
 class _ChangeTarifWidgetState extends State<ChangeTarifWidget> {
+  late ChangeTarifModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ChangeTarifModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

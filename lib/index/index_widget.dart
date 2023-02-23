@@ -10,6 +10,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'index_model.dart';
+export 'index_model.dart';
 
 class IndexWidget extends StatefulWidget {
   const IndexWidget({Key? key}) : super(key: key);
@@ -19,7 +21,22 @@ class IndexWidget extends StatefulWidget {
 }
 
 class _IndexWidgetState extends State<IndexWidget> {
+  late IndexModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => IndexModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

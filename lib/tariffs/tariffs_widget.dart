@@ -13,6 +13,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'tariffs_model.dart';
+export 'tariffs_model.dart';
 
 class TariffsWidget extends StatefulWidget {
   const TariffsWidget({Key? key}) : super(key: key);
@@ -22,13 +24,21 @@ class TariffsWidget extends StatefulWidget {
 }
 
 class _TariffsWidgetState extends State<TariffsWidget> {
-  bool? action;
-  bool? actionSub;
-  final _unfocusNode = FocusNode();
+  late TariffsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => TariffsModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -390,9 +400,9 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                         },
                                       ).then((value) => setState(() {}));
                                     } else {
-                                      action = await revenue_cat
+                                      _model.action = await revenue_cat
                                           .purchasePackage('productor_month');
-                                      if (action!) {
+                                      if (_model.action!) {
                                         final usersUpdateData =
                                             createUsersRecordData(
                                           tariff: 'PRODUCTOR',
@@ -609,9 +619,9 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                       },
                                     ).then((value) => setState(() {}));
                                   } else {
-                                    actionSub = await revenue_cat
+                                    _model.actionSub = await revenue_cat
                                         .purchasePackage('trader_month');
-                                    if (actionSub!) {
+                                    if (_model.actionSub!) {
                                       final usersUpdateData =
                                           createUsersRecordData(
                                         tariff: 'TRADER',
