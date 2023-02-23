@@ -7,6 +7,8 @@ import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'exit_model.dart';
+export 'exit_model.dart';
 
 class ExitWidget extends StatefulWidget {
   const ExitWidget({Key? key}) : super(key: key);
@@ -16,6 +18,27 @@ class ExitWidget extends StatefulWidget {
 }
 
 class _ExitWidgetState extends State<ExitWidget> {
+  late ExitModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ExitModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

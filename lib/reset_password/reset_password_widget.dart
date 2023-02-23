@@ -6,6 +6,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'reset_password_model.dart';
+export 'reset_password_model.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
   const ResetPasswordWidget({Key? key}) : super(key: key);
@@ -15,20 +17,24 @@ class ResetPasswordWidget extends StatefulWidget {
 }
 
 class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
-  TextEditingController? recoveryEmailController;
-  final _unfocusNode = FocusNode();
+  late ResetPasswordModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    recoveryEmailController = TextEditingController();
+    _model = createModel(context, () => ResetPasswordModel());
+
+    _model.recoveryEmailController ??= TextEditingController();
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    recoveryEmailController?.dispose();
     super.dispose();
   }
 
@@ -122,7 +128,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   TextFormField(
-                                    controller: recoveryEmailController,
+                                    controller: _model.recoveryEmailController,
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
@@ -186,14 +192,17 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                           fontWeight: FontWeight.normal,
                                         ),
                                     keyboardType: TextInputType.emailAddress,
+                                    validator: _model
+                                        .recoveryEmailControllerValidator
+                                        .asValidator(context),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 15, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        if (recoveryEmailController!
-                                            .text.isEmpty) {
+                                        if (_model.recoveryEmailController.text
+                                            .isEmpty) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -205,7 +214,8 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                                           return;
                                         }
                                         await resetPassword(
-                                          email: recoveryEmailController!.text,
+                                          email: _model
+                                              .recoveryEmailController.text,
                                           context: context,
                                         );
                                       },

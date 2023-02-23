@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'func_not_ready_model.dart';
+export 'func_not_ready_model.dart';
 
 class FuncNotReadyWidget extends StatefulWidget {
   const FuncNotReadyWidget({Key? key}) : super(key: key);
@@ -13,6 +15,27 @@ class FuncNotReadyWidget extends StatefulWidget {
 }
 
 class _FuncNotReadyWidgetState extends State<FuncNotReadyWidget> {
+  late FuncNotReadyModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => FuncNotReadyModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();

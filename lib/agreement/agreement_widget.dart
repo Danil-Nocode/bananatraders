@@ -4,6 +4,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'agreement_model.dart';
+export 'agreement_model.dart';
 
 class AgreementWidget extends StatefulWidget {
   const AgreementWidget({Key? key}) : super(key: key);
@@ -13,11 +15,21 @@ class AgreementWidget extends StatefulWidget {
 }
 
 class _AgreementWidgetState extends State<AgreementWidget> {
-  final _unfocusNode = FocusNode();
+  late AgreementModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AgreementModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }

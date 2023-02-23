@@ -1,4 +1,3 @@
-import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -6,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'support_model.dart';
+export 'support_model.dart';
 
 class SupportWidget extends StatefulWidget {
   const SupportWidget({Key? key}) : super(key: key);
@@ -15,23 +16,24 @@ class SupportWidget extends StatefulWidget {
 }
 
 class _SupportWidgetState extends State<SupportWidget> {
-  TextEditingController? supportEmailFromController;
-  TextEditingController? supportTextController;
-  final _unfocusNode = FocusNode();
+  late SupportModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-    supportEmailFromController = TextEditingController(text: currentUserEmail);
-    supportTextController = TextEditingController();
+    _model = createModel(context, () => SupportModel());
+
+    _model.supportTextController ??= TextEditingController();
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    supportEmailFromController?.dispose();
-    supportTextController?.dispose();
     super.dispose();
   }
 
@@ -110,76 +112,11 @@ class _SupportWidgetState extends State<SupportWidget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            TextFormField(
-                              controller: supportEmailFromController,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF95A1AC),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                hintText: 'Ingrese correo electrónico',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF95A1AC),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 20, 20, 20),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              keyboardType: TextInputType.emailAddress,
-                            ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: TextFormField(
-                                controller: supportTextController,
+                                controller: _model.supportTextController,
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -244,6 +181,8 @@ class _SupportWidgetState extends State<SupportWidget> {
                                     ),
                                 maxLines: null,
                                 minLines: 9,
+                                validator: _model.supportTextControllerValidator
+                                    .asValidator(context),
                               ),
                             ),
                             Padding(
@@ -257,7 +196,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                       query: {
                                         'subject': 'For support',
                                         'body':
-                                            supportEmailFromController!.text,
+                                            _model.supportTextController.text,
                                       }
                                           .entries
                                           .map((MapEntry<String, String> e) =>

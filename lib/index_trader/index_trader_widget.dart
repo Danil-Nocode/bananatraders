@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'index_trader_model.dart';
+export 'index_trader_model.dart';
 
 class IndexTraderWidget extends StatefulWidget {
   const IndexTraderWidget({Key? key}) : super(key: key);
@@ -20,11 +22,15 @@ class IndexTraderWidget extends StatefulWidget {
 }
 
 class _IndexTraderWidgetState extends State<IndexTraderWidget> {
+  late IndexTraderModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => IndexTraderModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().update(() {
@@ -33,6 +39,13 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
         FFAppState().semanaSur = functions.weekByDates(getCurrentTimestamp);
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
   }
 
   @override

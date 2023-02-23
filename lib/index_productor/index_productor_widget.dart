@@ -12,6 +12,8 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'index_productor_model.dart';
+export 'index_productor_model.dart';
 
 class IndexProductorWidget extends StatefulWidget {
   const IndexProductorWidget({Key? key}) : super(key: key);
@@ -21,7 +23,22 @@ class IndexProductorWidget extends StatefulWidget {
 }
 
 class _IndexProductorWidgetState extends State<IndexProductorWidget> {
+  late IndexProductorModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => IndexProductorModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
