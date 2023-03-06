@@ -50,7 +50,7 @@ android {
         applicationId "com.flutterflow.bananatraders"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 3
+        versionCode 4
         versionName flutterVersionName
     }
 

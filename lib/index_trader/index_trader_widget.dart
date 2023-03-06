@@ -72,6 +72,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
           );
         }
         List<AreasDaysRecord> indexTraderAreasDaysRecordList = snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -247,6 +248,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                     List<AreasDaysRecord>
                                         containerAreasDaysRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -591,6 +593,11 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                           }
                           List<AreasDaysRecord> containerAreasDaysRecordList =
                               snapshot.data!;
+                          // List<dynamic> list = [];
+                          // for (var elem in containerAreasDaysRecordList) {
+                          //   list.add(elem.date);
+                          // }
+                          // print(list);
                           return Container(
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)

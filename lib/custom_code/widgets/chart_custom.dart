@@ -147,10 +147,19 @@ class _ChartCustomState extends State<ChartCustom> {
     );
     String text;
 
-    var maxY =
-        getDataMinMax(widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
-                .reduce(max) +
-            1;
+    // var maxY =
+    //     getDataMinMax(widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
+    //             .reduce(max) +
+    //         1;
+
+    // print(widget.valuesDays!);
+    // print(widget.dateDays!);
+    // var minY =
+    //     getDataMinMax(widget.period!, widget.valuesDays!, widget.valuesWeeks!)!
+    //             .reduce(min) -
+    //         1;
+    // print(maxY);
+    // print(minY);
 
     // if (value.toInt() == maxY - 2) {
     //   text = '${maxY - 2}\$';
@@ -322,13 +331,17 @@ class _ChartCustomState extends State<ChartCustom> {
                 period = 50;
               }
 
-              // print(widget.weeks);
+              if (period > widget.dateDays!.length) {
+                period = widget.dateDays!.length;
+              }
 
               if (widget.period == '1 sem' ||
                   widget.period == '1 mes' ||
                   widget.period == '3 mes') {
                 // date = '${widget.dateDays![flSpot.x.toInt()].day}/${widget.dateDays![flSpot.x.toInt()].month}';
+
                 List<DateTime> newValues = widget.dateDays!.sublist(0, period);
+
                 Iterable<DateTime> inReverse = newValues.reversed;
                 List<DateTime> valuesList = inReverse.toList();
                 date =
@@ -348,6 +361,7 @@ class _ChartCustomState extends State<ChartCustom> {
                 List<int> valuesList = inReverse.toList();
                 date = '${valuesList[index]} sem';
               }
+
               return LineTooltipItem(
                 '${date}\n${flSpot.y}\$',
                 const TextStyle(

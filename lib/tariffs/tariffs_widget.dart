@@ -245,8 +245,7 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -257,6 +256,26 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                       .override(
                                         fontFamily: 'Akzidenz Grotesk Pro',
                                         color: Colors.black,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'No incluye IVA',
+                                  style: FlutterFlowTheme.of(context)
+                                      .title3
+                                      .override(
+                                        fontFamily: 'Akzidenz Grotesk Pro',
+                                        color: Color(0xFF757575),
+                                        fontSize: 12.0,
                                         useGoogleFonts: false,
                                       ),
                                 ),
@@ -397,7 +416,8 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                         final usersUpdateData =
                                             createUsersRecordData(
                                           tariff: 'PRODUCTOR',
-                                          dueDate: getCurrentTimestamp,
+                                          dueDate: getCurrentTimestamp
+                                              .add(Duration(days: 30)),
                                         );
                                         await currentUserReference!
                                             .update(usersUpdateData);
@@ -475,8 +495,7 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -488,6 +507,26 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                         fontFamily: 'Akzidenz Grotesk Pro',
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'No incluye IVA',
+                                  style: FlutterFlowTheme.of(context)
+                                      .title3
+                                      .override(
+                                        fontFamily: 'Akzidenz Grotesk Pro',
+                                        color: Colors.white,
+                                        fontSize: 12.0,
                                         useGoogleFonts: false,
                                       ),
                                 ),
@@ -616,7 +655,8 @@ class _TariffsWidgetState extends State<TariffsWidget> {
                                       final usersUpdateData =
                                           createUsersRecordData(
                                         tariff: 'TRADER',
-                                        dueDate: getCurrentTimestamp,
+                                        dueDate: getCurrentTimestamp
+                                            .add(Duration(days: 30)),
                                       );
                                       await currentUserReference!
                                           .update(usersUpdateData);
