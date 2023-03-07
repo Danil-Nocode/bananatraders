@@ -3253,7 +3253,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3335,7 +3335,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3417,7 +3417,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3499,7 +3499,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3581,7 +3581,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3663,7 +3663,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -3745,7 +3745,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4212,7 +4212,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4294,7 +4294,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4376,7 +4376,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4458,7 +4458,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4540,7 +4540,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4622,7 +4622,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -4704,7 +4704,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5170,7 +5170,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5252,7 +5252,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5334,7 +5334,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5416,7 +5416,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5498,7 +5498,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5580,7 +5580,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
@@ -5662,7 +5662,7 @@ class _IndexTraderWidgetState extends State<IndexTraderWidget> {
                                                                             .bodyText1
                                                                             .override(
                                                                               fontFamily: 'Akzidenz Grotesk Pro',
-                                                                              fontSize: 11,
+                                                                              fontSize: 9,
                                                                               useGoogleFonts: false,
                                                                               lineHeight: 1.9,
                                                                             ),
